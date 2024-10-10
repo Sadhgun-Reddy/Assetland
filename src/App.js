@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import Body from "./components/Body";
+import BookaCall from "./components/BookCall";
+import HomebuyerGuide from "./components/BrambleGuides";
+import CashBackCalculaterComponent from "./components/CashBackCalculater";
+import ContactModal from "./components/ContactModal";
+import ServicesSection from "./components/ServicesSection";
+import { Routes, Route, Link,BrowserRouter as Router } from 'react-router-dom';
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Body/>}/>
+        <Route path="/cashback" element={<CashBackCalculaterComponent/>}/>
+        <Route path="/speak" element={<ContactModal/>}/>
+        <Route path="/guide" element={<HomebuyerGuide/>}/>
+        <Route path="/services" element={<ServicesSection/>}/>
+        <Route path="/bookcall" element={<BookaCall/>}/>
+      </Routes>
+    </Router>
   );
 }
 
