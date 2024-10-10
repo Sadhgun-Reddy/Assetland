@@ -4,8 +4,9 @@ import BookaCall from "./components/BookCall";
 import HomebuyerGuide from "./components/BrambleGuides";
 import CashBackCalculaterComponent from "./components/CashBackCalculater";
 import ContactModal from "./components/ContactModal";
+import Login from "./components/Login";
 import ServicesSection from "./components/ServicesSection";
-import { Routes, Route, Link,BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/guide" element={<HomebuyerGuide/>}/>
         <Route path="/services" element={<ServicesSection/>}/>
         <Route path="/bookcall" element={<BookaCall/>}/>
+        <Route path="/login" element={<Login/>}/>
       </Routes>
     </Router>
   );

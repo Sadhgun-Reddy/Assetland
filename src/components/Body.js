@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Search, Menu, ChevronRight } from 'lucide-react';
-import ContactModal from './ContactModal';
+import { Search,  ChevronRight } from 'lucide-react';
+import Navbar from './NavBar';
 
 
 const BrambleHomepage = () => {
@@ -11,60 +11,16 @@ const BrambleHomepage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex">
-      {/* Sidebar */}
-      <div
-        className={`fixed inset-y-0 right-0 w-80 bg-white shadow-xl text-gray-900 transform ${
-          sidebarOpen ? 'translate-x-0' : 'translate-x-full'
-        } transition-transform duration-300 ease-in-out z-50`}
-      >
-        <div className="p-6">
-          <div className="flex justify-between items-center mb-6">
-            <div className="text-3xl font-bold text-[#d6156c]">bramble</div>
-            <button onClick={toggleSidebar} className="text-gray-500 hover:text-gray-900">
-              X
-            </button>
-          </div>
-          <ul className="space-y-6">
-            <li className="hover:underline">
-              <a href="#">Sign In</a>
-            </li>
-            <li className="hover:underline">
-               <a href="/cashback">Cash Back Calculator</a> 
-            </li>
-            <li className="hover:underline">
-              <a href="/services">Services</a>
-            </li>
-            <li className="hover:underline">
-              <a href="/guide">Homebuyer Guides</a>
-            </li>
-          </ul>
-          <div className="mt-12 space-y-4">
-            <a href="/speak" className="text-sm font-semibold flex items-center space-x-2 hover:underline">
-              <span>Speak to our team</span>
-            </a>
-            <a href="/" className="text-sm font-semibold flex items-center space-x-2 hover:underline">
-              <span>About Bramble</span>
-            </a>
-          </div>
-        </div>
-      </div>
 
-      <div className="flex-1">
-        {/* Header */}
-        <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
-          <div className="text-3xl font-bold text-[#d6156c]">bramble</div>
-          <div className="flex items-center space-x-4">
-            <button className="px-4 py-2 bg-[#d6156c] text-white rounded-full font-semibold">Sign in</button>
-            <Menu className="cursor-pointer" onClick={toggleSidebar} />
-          </div>
-        </header>
-
+    <div className="realtive  max-h-fit bg-white flex ">
+          <Navbar className="w-full"/>
+    
+      <div className=" flex-1 py-4 ">
         {/* Main Content */}
-        <main className="max-w-6xl mx-auto px-6 mt-16 flex">
-          <div className="w-1/2 pr-8">
+        <main className=" max-w-6xl mx-auto px-6 mt-16 flex">
+          <div className="w-1/2 pr-8 ">
             <div className="flex items-center mb-6">
-              <span className="text-sm font-semibold mr-2">Backed by</span>
+              <span className="text-sm font-semibold mr-2">Backed by</span> 
               <div className="bg-[#ff6600] text-white px-1 font-bold">Y</div>
               <span className="ml-1 font-semibold">Combinator</span>
             </div>
@@ -305,21 +261,21 @@ const AgentSection = () => {
             <div>CalDRE# 02247723</div>
           </div>
           <div className="flex space-x-2">
-            <a href="#" className="hover:underline">
+            <p className="hover:underline">
               team@usebramble.com
-            </a>
+            </p>
             <span>·</span>
-            <a href="#" className="hover:underline">
+            <p className="hover:underline">
               Terms of Use
-            </a>
+            </p>
             <span>·</span>
-            <a href="#" className="hover:underline">
+            <p className="hover:underline">
               Privacy Policy
-            </a>
+            </p>
             <span>·</span>
-            <a href="#" className="hover:underline">
+            <p className="hover:underline">
               Cookie Policy
-            </a>
+            </p>
           </div>
           <div>
             <div>© Zillow, Inc., 2006-2023. Use is subject to Terms of Use</div>

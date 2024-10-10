@@ -1,11 +1,14 @@
 // components/ServicesSection.js
 import React from 'react';
+import Navbar from './NavBar';
 
 const ServicesSection = () => {
   return (
+    <div>
+      <Navbar className="w-full"/>
     <div className="bg-white text-gray-800">
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-black mb-6">Services</h1>
+      <div className="max-w-7xl mx-auto pt-20 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-4xl font-bold text-black mb-6 ">Services</h1>
         <p className="mb-8 text-lg">
           Getting representation from a traditional real estate broker can be expensive.
         </p>
@@ -63,13 +66,14 @@ const ServicesSection = () => {
           <div className="flex justify-between items-center py-4">
             <p>&copy; Village AI, Inc 2024 | CalDRE# 02247723</p>
             <p className="flex space-x-4">
-              <a href="#" className="hover:text-gray-900">Terms of Use</a>
-              <a href="#" className="hover:text-gray-900">Privacy Policy</a>
-              <a href="#" className="hover:text-gray-900">Cookie Policy</a>
+              <p className='hover:text-gray-900'>Terms of Use</p>
+              <p className='hover:text-gray-900'>Privacy Policy</p>
+              <p className='hover:text-gray-900'>Cookie Policy</p>
             </p>
           </div>
         </div>
       </footer>
+    </div>
     </div>
   );
 };

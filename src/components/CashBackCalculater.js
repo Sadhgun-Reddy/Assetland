@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "./NavBar";
 
 const CashBackCalculaterComponent = () => {
   const [homePrice, setHomePrice] = useState(2670000);
@@ -14,8 +15,12 @@ const CashBackCalculaterComponent = () => {
   };
 
   return (
+    <div>
+      <Navbar className="w-full"/>
+    
     <div className="max-w-xl mx-auto p-5 font-sans">
-      <h2 className="text-xl font-bold">The most money in your pocket, guaranteed</h2>
+      
+      <h2 className="text-xl font-bold pt-20">The most money in your pocket, guaranteed</h2>
       <p>
         Instead of charging a percent commission like most real estate brokers, we use an easy flat fee. We've streamlined the homebuying process with powerful AI tools, and since we save big, you do too.
       </p>
@@ -79,6 +84,7 @@ const CashBackCalculaterComponent = () => {
         <button className="border border-blue-500  bg-blue-900 text-white font-semibold py-2 px-4 rounded mx-16">Get Started</button>
         <a href="/bookcall"><button className="border border-black  bg-white text-black font-semibold py-2 px-4 rounded">Book a Call</button></a>
       </div>
+    </div>
     </div>
   );
 };
