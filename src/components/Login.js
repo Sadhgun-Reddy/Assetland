@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { auth } from '../utils/firebase';
+
+const provider = new GoogleAuthProvider();
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = useCallback((e) => {
     setEmail(e.target.value);
-  };
+  }, []);
 
-  const handleEmailSubmit = () => {
+  const handleEmailSubmit = useCallback(() => {
     if (!email) {
       setErrorMessage('Please enter an email address.');
     } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -18,12 +22,24 @@ const Login = () => {
       console.log('Login link sent to:', email);
       // Here you would typically send a login link to the user's email
     }
-  };
+  }, [email]);
 
-  const handleGoogleSignIn = () => {
+  const handleGoogleSignIn = useCallback(() => {
     console.log('Google Sign-In clicked');
-    // Implement Google Sign-In logic here
-  };
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setErrorMessage(`Google Sign-In failed: ${errorMessage}`);
+        console.error(errorMessage);
+      });
+  }, []);
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
@@ -37,11 +53,13 @@ const Login = () => {
           value={email}
           onChange={handleEmailChange}
           className="w-full p-2 mb-4 border rounded"
+          aria-label="Email address"
         />
         
         <button
           onClick={handleEmailSubmit}
           className="w-full bg-gray-300 text-gray-700 p-2 rounded mb-4 hover:bg-gray-400"
+          aria-label="Continue with your email"
         >
           Continue with your email
         </button>
@@ -59,12 +77,14 @@ const Login = () => {
         <button
           onClick={handleGoogleSignIn}
           className="w-full border border-gray-300 p-2 rounded flex items-center justify-center"
+          aria-label="Continue with Google"
         >
-          <img src="https://www.flaticon.com/free-icons/google" alt="Google" className="w-6 h-6 mr-2" />
+          <img src="https://image.similarpng.com/very-thumbnail/2020/06/Logo-google-icon-PNG.png" alt="Google" className="w-6 h-6 mr-2" />
           Continue with Google
         </button>
       </div>
     </div>
   );
 };
+
 export default Login;
