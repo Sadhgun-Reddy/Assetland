@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ContactModal = ({ isOpen, onClose }) => {
-  if (!isOpen) return null; // Prevent rendering if not open ERROR
+  if (isOpen) return null; // Prevent rendering if not open ERROR
 
   const handleSendMessage = (event) => {
     event.preventDefault();
