@@ -1,31 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { Menu } from 'lucide-react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../utils/firebase';
-import { useDispatch } from 'react-redux';
-import { addUser, removeUser } from '../utils/userSlice';
-import { useNavigate } from 'react-router-dom';
+
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const { uid, displayName, email } = user;
-        dispatch(addUser({ email, displayName, uid }));
-        navigate("/transactions");
-      } else {
-        dispatch(removeUser());
-        navigate("/");
-      }
-    });
-
-    // Unsubscribe on component unmount
-    return () => unsubscribe();
-  }, [dispatch, navigate]);
 
   const toggleSidebar = () => {
     setSidebarOpen((prev) => !prev);

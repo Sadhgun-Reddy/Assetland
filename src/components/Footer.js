@@ -13,11 +13,11 @@ const Footer = () => {
       <div>
         <a href="mailto:team@usebramble.com" className="hover:underline">team@usebramble.com</a>
         <span className="mx-1">·</span>
-        <a href="#" className="hover:underline">Terms of Use</a>
+        <a href="/terms" className="hover:underline">Terms of Use</a>
         <span className="mx-1">·</span>
-        <a href="#" className="hover:underline">Privacy Policy</a>
+        <a href="/privacypolicy" className="hover:underline">Privacy Policy</a>
         <span className="mx-1">·</span>
-        <a href="#" className="hover:underline">Cookie Policy</a>
+        <a href="cookies" className="hover:underline">Cookie Policy</a>
       </div>
     </footer>
   );

@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from '../utils/firebase';
 
-const provider = new GoogleAuthProvider();
+const providers = new GoogleAuthProvider();
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -27,7 +27,7 @@ const Login = () => {
   const handleGoogleSignIn = useCallback(() => {
     console.log('Google Sign-In clicked');
 
-    signInWithPopup(auth, provider)
+    signInWithPopup(auth, providers)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;

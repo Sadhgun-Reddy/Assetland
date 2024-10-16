@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from "react";
-import Navbar from "./NavBar";
+import { useSelector } from "react-redux"; // Import useSelector to access Redux state
+import LogedInNavbar from "./LogedInNavbar"; // Import logged-in navbar
+import Navbar from "./NavBar"; // Import non-logged-in navbar
 
 const CashBackCalculatorComponent = () => {
   const [homePrice, setHomePrice] = useState(2670000);
@@ -14,9 +16,14 @@ const CashBackCalculatorComponent = () => {
     setHomePrice(Number(event.target.value));
   };
 
+  // Retrieve user authentication status from Redux store
+  const user = useSelector((state) => state.user);
+
   return (
     <div>
-      <Navbar className="w-full" />
+      {/* Conditional Navbar Rendering */}
+      {user ? <LogedInNavbar /> : <Navbar className="w-full" />}
+      
       <div className="max-w-xl mx-auto p-5 font-sans">
         <h2 className="text-xl font-bold pt-20">The most money in your pocket, guaranteed</h2>
         <p>

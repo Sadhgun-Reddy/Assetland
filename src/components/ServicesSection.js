@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import Navbar from './NavBar';
 import Footer from './Footer';
+import LogedInNavbar from './LogedInNavbar';
+import { useSelector } from 'react-redux';
 
 const ServicesSection = () => {
+  const user = useSelector((state) => state.user);
   return (
     <div>
-      <Navbar className="w-full" />
+      {user ? <LogedInNavbar /> : <Navbar className="w-full" />}
       <div className="bg-white text-gray-800">
         <div className="max-w-7xl mx-auto pt-20 px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-black mb-6">Services</h1>
@@ -15,14 +18,12 @@ const ServicesSection = () => {
           <p className="mb-8 text-lg">
             Bramble is the all-in-one option for home buyers looking to close on a house. We offer guidance, support, and cutting-edge technology to get you through the process without the high commission fees of the traditional brokerage model.
           </p>
-
           <div className="space-y-4">
             {serviceItems.map((item, index) => (
               <ServiceItem key={index} {...item} />
             ))}
           </div>
         </div>
-
         <Footer />
       </div>
     </div>
@@ -40,9 +41,9 @@ const ServiceItem = ({ title, description, icon }) => {
     <div className="border-b border-gray-200 pb-4">
       <div className="flex items-center space-x-3 cursor-pointer" onClick={toggleDescription}>
         <span className="text-2xl" aria-hidden="true">{icon}</span>
-        <h2 className="text-xl font-semibold">{title}</h2>
+        <h2 className="text-xl font-semibold hover:underline hover:font-bold">{title}</h2>
       </div>
-      {isOpen && <p className="mt-2 text-gray-600">{description}</p>}
+      {isOpen && <p className="mt-4 text-gray-600">{description}</p>}
     </div>
   );
 };
