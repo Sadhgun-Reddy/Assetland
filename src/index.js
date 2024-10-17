@@ -12,5 +12,4 @@ root.render(
   </React.StrictMode>
 );
 
-// Measure performance in your app
-reportWebVitals(); // Log results to console or send to an analytics endpoint
+reportWebVitals(); 

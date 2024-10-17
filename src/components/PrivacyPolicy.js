@@ -32,7 +32,7 @@ const PrivacyPolicy = () => {
       
       <div className="space-y-4">
         <div>
-          <strong>What personal information do we process?</strong> When you visit, use, or navigate our Services, we may process personal information depending on how you interact with us and the Services, the choices you make, and the products and features you use. Learn more about <a href="#" className="text-blue-600 hover:underline">personal information you disclose to us</a>.
+          <strong>What personal information do we process?</strong> When you visit, use, or navigate our Services, we may process personal information depending on how you interact with us and the Services, the choices you make, and the products and features you use. Learn more about personal information you disclose to us.
         </div>
         
         <div>
@@ -44,7 +44,7 @@ const PrivacyPolicy = () => {
         </div>
         
         <div>
-          <strong>How do we process your information?</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent. We process your information only when we have a valid legal reason to do so. Learn more about <a href="#" className="text-blue-600 hover:underline">how we process your information</a>.
+          <strong>How do we process your information?</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent. We process your information only when we have a valid legal reason to do so. Learn more about how we process your information.
         </div>
       </div>
     </div>

@@ -39,9 +39,9 @@ const TermsOfUse = () => {
         <h2 className="text-2xl font-bold mb-4">TABLE OF CONTENTS</h2>
         
         <ol className="list-decimal list-inside space-y-2 text-blue-600">
-          <li><a href="#" className="hover:underline">OUR SERVICES</a></li>
-          <li><a href="#" className="hover:underline">INTELLECTUAL PROPERTY RIGHTS</a></li>
-          <li><a href="#" className="hover:underline">USER REPRESENTATIONS</a></li>
+          <li><p className="hover:underline">OUR SERVICES</p></li>
+          <li><p className="hover:underline">INTELLECTUAL PROPERTY RIGHTS</p></li>
+          <li><p className="hover:underline">USER REPRESENTATIONS</p></li> 
         </ol>
       </div>
     );

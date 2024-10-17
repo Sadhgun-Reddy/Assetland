@@ -65,7 +65,7 @@ const SignUpHomePage = () => {
             <div className="w-1/2">
               <h2 className="text-3xl font-bold">Step 2: Make competitive offers, fast</h2>
               <p className="text-xl">Use our instant market reports, comps, and offer wizard to go from window shopper to homebuyer.</p>
-              <a href="#" className="text-[#d6156c] flex items-center hover:underline">
+              <a href="/bookcall" className="text-[#d6156c] flex items-center hover:underline">
                 Want help touring or evaluating a property? Let us know.
                 <ChevronRight className="ml-1" size={20} />
               </a>
