@@ -34,6 +34,9 @@ const LogedInNavbar =()=>{
       const gotoSpeak=()=>{
         navigate("/speak")
       }
+      const gotoHome=()=>{
+        navigate("/")
+      }
 
     return (
         <header className='flex justify-between items-center px-6 py-4 bg-white shadow'>
@@ -74,11 +77,9 @@ const LogedInNavbar =()=>{
                     <div className="mt-12 space-y-4">
                     <span><button onClick={gotoSpeak} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4 text-sm font-semibold flex items-center space-x-2 hover:underline'>Speak to our team</button></span>
                     
-                    <a href="/" className="text-sm font-semibold flex items-center space-x-2 hover:underline">
-                        <span><button className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4'>About Bramble</button></span>
-                    </a>
+                    <span><button onClick={gotoHome} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4 text-sm font-semibold flex items-center space-x-2 hover:underline mt-4'>About Bramble</button></span>
                     
-                        <span><button onClick={gotoHomepage} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4 text-sm font-semibold flex items-center space-x-2 hover:underline'>Log Out</button></span>
+                    <span><button onClick={gotoHomepage} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4 text-sm font-semibold flex items-center space-x-2 hover:underline mt-4'>Log Out</button></span>
                     </div>
                 </div>
                 </div>

@@ -1,13 +1,35 @@
 import React, {  useState } from 'react';
 import { Menu } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
+
 
   const toggleSidebar = () => {
     setSidebarOpen((prev) => !prev);
   };
+
+  const gotoLoginPage=()=>{
+    navigate("/Login")
+  }
+  const gotoCashback=()=>{
+    navigate("/cashback")
+  }
+  const gotoServices=()=>{
+    navigate("/services")
+  }
+  const gotoGuide=()=>{
+    navigate("/guide")
+  }
+  const gotoHomepage=()=>{
+    navigate("/")
+  }
+  const gotoSpeak=()=>{
+    navigate("/speak")
+  }
 
   return (
     <div className='absolute w-full bg-white'>
@@ -31,9 +53,8 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center space-x-4">
-          <a href='/Login'>
-            <button className="px-4 py-2 bg-[#d6156c] text-white rounded-full font-semibold">Sign in</button>
-          </a>
+          
+          <button onClick={gotoLoginPage} className="px-4 py-2 bg-[#d6156c] text-white rounded-full font-semibold">Sign in</button>
           <Menu className="cursor-pointer" onClick={toggleSidebar} />
 
           {/* Sidebar */}
@@ -47,37 +68,25 @@ const Navbar = () => {
               </div>
               <ul className="space-y-6">
                 <li>
-                  <a href="/Login">
-                    <button className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4'>Sign In</button>
-                  </a>
+                  <button onClick={gotoLoginPage} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4'>Sign In</button>
                 </li>
                 <li className="hover:underline">
-                  <a href="/cashback">
-                    <button className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4'>Cash Back Calculator</button>
-                  </a>
+                  <button onClick={gotoCashback}  className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4'>Cash Back Calculator</button>
                 </li>
                 <li className="hover:underline">
-                  <a href="/services">
-                    <button className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4'>Services</button>
-                  </a>
+                  <button onClick={gotoServices}  className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4'>Services</button>
                 </li>
                 <li className="hover:underline">
-                  <a href="/guide">
-                    <button className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4'>Homebuyer Guides</button>
-                  </a>
+                  <button onClick={gotoGuide}  className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4'>Homebuyer Guides</button>
                 </li>
               </ul>
               <div className="mt-12 space-y-4">
-                <a href="/speak" className="text-sm font-semibold flex items-center space-x-2 hover:underline">
                   <span>
-                    <button className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4'>Speak to our team</button>
+                    <button onClick={gotoSpeak}  className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4'>Speak to our team</button>
                   </span>
-                </a>
-                <a href="/" className="text-sm font-semibold flex items-center space-x-2 hover:underline">
                   <span>
-                    <button className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4'>About Bramble</button>
+                    <button onClick={gotoHomepage}  className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4'>About Bramble</button>
                   </span>
-                </a>
               </div>
             </div>
           </div>
