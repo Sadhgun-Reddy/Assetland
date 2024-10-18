@@ -9,6 +9,8 @@ const UserAccount = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   const user = useSelector((state) => state.user);
+  const email = useSelector((state) => state.user.email);
+
 
 
   const handleSubmit = (e) => {
@@ -41,7 +43,7 @@ const UserAccount = () => {
       {user ? <LogedInNavbar className="w-full"/> : <Navbar className="w-full" />}
       <div className="max-w-2xl mx-auto p-6 font-sans">
         <h1 className="text-2xl font-semibold mb-1">Your account</h1>
-        <p className="text-gray-600 mb-6">user-email</p>
+        <p className="text-gray-600 mb-6">{email}</p>
 
         <div className="flex items-center mb-8">
           <div className="w-24 h-24 bg-purple-600 rounded-full flex items-center justify-center text-white text-4xl font-semibold mr-8">

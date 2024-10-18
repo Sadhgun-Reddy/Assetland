@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { Menu } from 'lucide-react';
+import { Menu,  } from 'lucide-react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { removeUser } from '../utils/userSlice';
 
 
@@ -10,6 +10,8 @@ const LogedInNavbar =()=>{
     const dispatch = useDispatch();
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const navigate = useNavigate();
+
+    const displayName = useSelector((state) => state.user.displayName);
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
@@ -69,7 +71,7 @@ const LogedInNavbar =()=>{
                     </button>
                     </div>
                     <ul className="space-y-6">
-                    <li><button onClick={gotoDashboard} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4'>"User Name"</button></li>
+                    <li><button onClick={gotoDashboard} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4'>{displayName }</button></li>
                     <li><button onClick={gotoCashback} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4'>Cash Back Calculator</button></li>
                     <li><button onClick={gotoServices} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4'>Services</button></li>
                     <li><button onClick={gotoGuide} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4'>Homebuyer Guides</button></li>
