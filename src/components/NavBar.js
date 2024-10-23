@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   const gotoLoginPage=()=>{
-    navigate("/Login")
+    navigate("/login")
   }
   const gotoCashback=()=>{
     navigate("/cashback")
