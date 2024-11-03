@@ -4,7 +4,7 @@ const BookaCall = ({ isOpen, onClose }) => {
   if (!isOpen) return null; // Ensure the modal only renders when open
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 " >
       <div className="bg-white p-6 rounded-lg shadow-lg w-96">
         <div className='flex justify-between items-center mb-4'>
           <h2 className="text-xl font-semibold">Book a Call</h2>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Search, ChevronRight } from 'lucide-react'; // Adjust based on your icon library
-import Navbar from './NavBar'; // Adjust the import based on your file structure
+import { Search, ChevronRight } from 'lucide-react';
+import Navbar from './NavBar';
+import Footer from './Footer';
 
 const SignUpHomePage = () => {
   const [homePrice, setHomePrice] = useState(2670000);
@@ -17,12 +18,12 @@ const SignUpHomePage = () => {
       <Navbar className="w-full" />
 
       {/* Bramble Homepage */}
-      <div className="flex py-4">
-        <main className="max-w-6xl mx-auto px-6 mt-16 flex">
-          <div className="w-1/2 pr-8">
-            <h1 className="text-6xl font-bold mb-6">Flat-fee<br />homebuying</h1>
-            <p className="text-2xl mb-4">Buy any home with Bramble.</p>
-            <p className="text-2xl mb-8">
+      <div className="flex flex-col py-4 md:flex-row">
+        <main className="max-w-6xl mx-auto px-6 mt-16 flex flex-col md:flex-row">
+          <div className="md:w-2/3 pr-8">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">Flat-fee<br />homebuying</h1>
+            <p className="text-xl md:text-2xl mb-4">Buy any home with Bramble.</p>
+            <p className="text-xl md:text-2xl mb-8">
               Get <span className="text-[#d6156c] font-bold">$20,000</span> back.
             </p>
             <p className="text-gray-600 mb-4">Get an instant market analysis for any listing</p>
@@ -35,66 +36,69 @@ const SignUpHomePage = () => {
               <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
             </div>
           </div>
-          <div className="w-1/2">
-            <img src="https://usebramble.com/assets/bramble-app-DAxXA2fD.webp" alt="Bramble App" />
+          <div className="md:w-1/3 mt-8 md:mt-0">
+            <img
+              src="https://usebramble.com/assets/bramble-app-DAxXA2fD.webp"
+              alt="Bramble App"
+              className="w-full"
+            />
           </div>
         </main>
-        <hr className="border-2" />
       </div>
 
       {/* Bramble Process Page */}
-      <div className="min-h-screen p-8">
-        <h1 className="text-4xl font-bold mb-12 text-center">Bramble supports buyers every step of the way</h1>
+      <div className=" p-8">
+        <h1 className="text-3xl md:text-4xl font-bold mb-12 text-center">Bramble supports buyers every step of the way</h1>
         <div className="max-w-6xl mx-auto space-y-24">
           {/* Step 1 */}
-          <div className="flex items-center space-x-8">
-            <div className="w-1/2">
-              <img src="https://usebramble.com/assets/bramble-comps-Dl0WBhzq.webp" alt="Evaluate listings" />
+          <div className="flex flex-col md:flex-row items-center md:space-x-8 space-y-8 md:space-y-0">
+            <div className="md:w-1/3">
+              <img src="https://usebramble.com/assets/bramble-comps-Dl0WBhzq.webp" alt="Evaluate listings"  />
             </div>
-            <div className="w-1/2">
-              <h2 className="text-3xl font-bold">Step 1: Evaluate listings</h2>
-              <p className="text-xl">Get instant disclosure reviews, schedule tours, and find your dream home.</p>
-              <a href="/bookcall" className="text-[#d6156c] flex items-center hover:underline">
+            <div className="md:w-2/3">
+              <h2 className="text-2xl md:text-3xl font-bold">Step 1: Evaluate listings</h2>
+              <p className="text-lg md:text-xl">Get instant disclosure reviews, schedule tours, and find your dream home.</p>
+              <a href="/bookcall" className="text-[#d6156c] flex items-center hover:underline mt-2">
                 Want help touring or evaluating a property? Let us know.
                 <ChevronRight className="ml-1" size={20} />
               </a>
             </div>
           </div>
           {/* Step 2 */}
-          <div className="flex items-center space-x-8">
-            <div className="w-1/2">
-              <h2 className="text-3xl font-bold">Step 2: Make competitive offers, fast</h2>
-              <p className="text-xl">Use our instant market reports, comps, and offer wizard to go from window shopper to homebuyer.</p>
-              <a href="/bookcall" className="text-[#d6156c] flex items-center hover:underline">
+          <div className="flex flex-col md:flex-row items-center   md:space-x-8 md:space-y-0">
+            <div className="md:w-2/3 order-last md:order-first">
+              <h2 className="text-2xl md:text-3xl font-bold">Step 2: Make competitive offers, fast</h2>
+              <p className="text-lg md:text-xl">Use our instant market reports, comps, and offer wizard to go from window shopper to homebuyer.</p>
+              <a href="/bookcall" className="text-[#d6156c] flex items-center hover:underline mt-2">
                 Want help touring or evaluating a property? Let us know.
                 <ChevronRight className="ml-1" size={20} />
               </a>
             </div>
-            <div className="w-1/2">
-              <img src="https://usebramble.com/assets/bramble-offers-Dc9Pu8HT.webp" alt="Make offers" />
+            <div className="md:w-1/3">
+              <img src="https://usebramble.com/assets/bramble-offers-Dc9Pu8HT.webp" alt="Make offers" className="w-full" />
             </div>
           </div>
         </div>
       </div>
 
       {/* Bramble Closing and Fee Page */}
-      <div className="min-h-screen bg-white p-8">
+      <div className=" bg-white p-0">
         <div className="max-w-6xl mx-auto space-y-24">
           {/* Step 3 */}
-          <div className="flex items-center space-x-8">
-            <div className="w-1/2">
-              <img src="https://usebramble.com/assets/bramble-closing-Cfm8DP82.webp" alt="Closing confidence" />
+          <div className="flex flex-col md:flex-row items-center md:space-x-8 space-y-8 md:space-y-0">
+            <div className="md:w-1/3">
+              <img src="https://usebramble.com/assets/bramble-closing-Cfm8DP82.webp" alt="Closing confidence" className="w-full" />
             </div>
-            <div className="w-1/2">
-              <h2 className="text-3xl font-bold">Step 3: Close with confidence</h2>
-              <p className="text-xl">We support you through escrow end-to-end, from inspections to final walkthroughs.</p>
+            <div className="md:w-2/3">
+              <h2 className="text-2xl md:text-3xl font-bold">Step 3: Close with confidence</h2>
+              <p className="text-lg md:text-xl">We support you through escrow end-to-end, from inspections to final walkthroughs.</p>
             </div>
           </div>
           {/* Flat Fee */}
-          <div className="flex items-center space-x-8">
-            <div className="w-1/2">
-              <h2 className="text-3xl font-bold">The best part? It's all for one flat fee</h2>
-              <p className="text-xl">Because our fee doesn't increase with your home price.</p>
+          <div className="flex flex-col md:flex-row items-center md:space-x-8 space-y-8 md:space-y-0">
+            <div className="md:w-2/3">
+              <h2 className="text-2xl md:text-3xl font-bold">The best part? It's all for one flat fee</h2>
+              <p className="text-lg md:text-xl">Because our fee doesn't increase with your home price.</p>
               <label htmlFor="homePrice" className="block mt-5">Enter your home's price</label>
               <input
                 type="number"
@@ -124,26 +128,25 @@ const SignUpHomePage = () => {
                 <p>Your estimated rebate with Bramble*: <span className="text-pink-500 font-bold">${parseFloat(rebate).toLocaleString()}</span></p>
                 <small className="block mt-2">*assuming 2.5% buyer commission or credit from seller</small>
               </div>
-              <p>
-                When you use Bramble, you're getting all the expertise of the best agents in the business with none of the waiting involved in working with a traditional agent that's not responding to your emails. Plus you get a huge chunk of money back ($20,000 for the average home buyer in California!).
+              <p className="mt-4">
+                When you use Bramble, you're getting all the expertise of the best agents in the business with none of the waiting involved in working with a traditional agent.
               </p>
             </div>
-            <div className="w-1/2">
-              <img src="https://usebramble.com/assets/bramble-savings-RZ7ye5Fz.webp" alt="Bramble savings" />
+            <div className="md:w-1/3">
+              <img src="https://usebramble.com/assets/bramble-savings-RZ7ye5Fz.webp" alt="Bramble savings" className="w-full" />
             </div>
           </div>
         </div>
-        <hr className="border-2" />
       </div>
 
       {/* Agent Section */}
-      <div>
+      <div className="py-12 pt-15">
         <h2 className="text-3xl font-bold text-center mb-6">
           The best agents in the biz are always a call away
         </h2>
-        <div className="max-w-6xl mx-auto flex justify-between items-start space-x-8">
-          {/* Agent card */}
-          <div className="w-1/3 text-center">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0">
+          {/* Agent Card */}
+          <div className="w-full md:w-1/3 text-center">
             <div className="mb-4 text-[#d6156c] font-semibold">Featured Agent</div>
             <img
               src="https://usebramble.com/assets/tony-N2IoW0k4.webp"
@@ -158,48 +161,29 @@ const SignUpHomePage = () => {
           </div>
 
           {/* Testimonials */}
-          <div className="w-1/3">
+          <div className="w-full md:w-1/3">
             <div className="flex items-center space-x-1 mb-2">
               <span className="text-[#d6156c]">★★★★★</span>
             </div>
-            <p className="text-sm">I recently closed on our first home and it was because of Tony! We could not have been happier with his service! - Patricia, Cambrian Park, CA</p>
+            <p className="text-sm">I recently closed on our first home and it was because of Tony! - Patricia, Cambrian Park, CA</p>
           </div>
-
-          <div className="w-1/3">
+          <div className="w-full md:w-1/3">
             <div className="flex items-center space-x-1 mb-2">
               <span className="text-[#d6156c]">★★★★★</span>
             </div>
-            <p className="text-sm">[Tony] was helpful, fast to respond, and contributed to closing this on the quick timelines required in SF. Would work with him again. - Lukas, San Francisco, CA</p>
+            <p className="text-sm">Tony was helpful, fast to respond, and helped us close quickly. - Lukas, San Francisco, CA</p>
           </div>
-
-          <div className="w-1/3">
+          <div className="w-full md:w-1/3">
             <div className="flex items-center space-x-1 mb-2">
               <span className="text-[#d6156c]">★★★★★</span>
             </div>
             <p className="text-sm">Very easy to work with! - Jackie & Jimmy, Burlingame, CA</p>
           </div>
         </div>
-
-        {/* Footer */}
-        <div className="max-w-6xl mx-auto mt-12 flex justify-between items-center text-gray-600 text-sm">
-          <div>
-            <div>© Village AI, Inc 2024</div>
-            <div>CalDRE# 02247723</div>
-          </div>
-          <div className="flex space-x-2">
-            <p className="hover:underline">team@usebramble.com</p>
-            <span>·</span>
-            <p className="hover:underline">Terms of Use</p>
-            <span>·</span>
-            <p className="hover:underline">Privacy Policy</p>
-            <span>·</span>
-            <p className="hover:underline">Cookie Policy</p>
-          </div>
-          <div>
-            <div>© Zillow, Inc., 2006-2023. Use is subject to Terms of Use</div>
-          </div>
-        </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

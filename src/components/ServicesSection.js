@@ -6,9 +6,10 @@ import { useSelector } from 'react-redux';
 
 const ServicesSection = () => {
   const user = useSelector((state) => state.user);
+  
   return (
     <div>
-      {user ? <LogedInNavbar /> : <Navbar className="w-full" />}
+      {user ? <LogedInNavbar /> : <Navbar />}
       <div className="bg-white text-gray-800">
         <div className="max-w-7xl mx-auto pt-20 px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-black mb-6">Services</h1>
@@ -34,16 +35,20 @@ const ServiceItem = ({ title, description, icon }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDescription = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(prev => !prev);
   };
 
   return (
     <div className="border-b border-gray-200 pb-4">
-      <div className="flex items-center space-x-3 cursor-pointer" onClick={toggleDescription}>
+      <div className="flex items-center space-x-3 cursor-pointer" onClick={toggleDescription} aria-label={title}>
         <span className="text-2xl" aria-hidden="true">{icon}</span>
         <h2 className="text-xl font-semibold hover:underline hover:font-bold">{title}</h2>
       </div>
-      {isOpen && <p className="mt-4 text-gray-600">{description}</p>}
+      {isOpen && (
+        <p className="mt-4 text-gray-600 transition duration-300 ease-in-out">
+          {description}
+        </p>
+      )}
     </div>
   );
 };

@@ -14,6 +14,7 @@ import TermsOfUse from "./components/TermsOfUse";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import CookiePolicy from "./components/CookiePolicy";
 import UserAccount from "./components/Dashboard";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/cookies" element={<CookiePolicy />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           <Route path="/profile" element={<UserAccount />} />
+          <Route path="/Footer" element={<Footer />} />
 
         </Routes>
       </Router>

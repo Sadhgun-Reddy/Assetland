@@ -5,7 +5,7 @@ import Navbar from "./NavBar"; // Import non-logged-in navbar
 
 const CashBackCalculatorComponent = () => {
   const [homePrice, setHomePrice] = useState(2670000);
-
+  
   // Calculate values based on home price
   const commission = useMemo(() => (homePrice * 0.025).toFixed(2), [homePrice]);
   const flatFee = 5000;
@@ -16,6 +16,12 @@ const CashBackCalculatorComponent = () => {
     setHomePrice(Number(event.target.value));
   };
 
+  // Function to handle manual input changes
+  const handlePriceChange = (event) => {
+    const value = Math.max(Number(event.target.value.replace(/,/g, '')), 100000); // Prevent values less than 100,000
+    setHomePrice(value);
+  };
+
   // Retrieve user authentication status from Redux store
   const user = useSelector((state) => state.user);
 
@@ -23,7 +29,7 @@ const CashBackCalculatorComponent = () => {
     <div>
       {/* Conditional Navbar Rendering */}
       {user ? <LogedInNavbar /> : <Navbar className="w-full" />}
-      
+
       <div className="max-w-xl mx-auto p-5 font-sans">
         <h2 className="text-xl font-bold pt-20">The most money in your pocket, guaranteed</h2>
         <p>
@@ -37,8 +43,9 @@ const CashBackCalculatorComponent = () => {
           type="number"
           id="homePrice"
           value={homePrice.toLocaleString()}
-          readOnly
+          onChange={handlePriceChange}
           className="w-full p-2 mt-2 border border-gray-300 rounded"
+          aria-label="Home price input"
         />
 
         <input
@@ -50,6 +57,7 @@ const CashBackCalculatorComponent = () => {
           step="10000"
           value={homePrice}
           onChange={handleSliderChange}
+          aria-label="Home price slider"
         />
 
         <h3 className="mt-5 text-lg font-semibold">
@@ -87,11 +95,11 @@ const CashBackCalculatorComponent = () => {
         </p>
         
         <div className="mt-10 flex">
-          <button className="border border-blue-500 bg-blue-900 text-white font-semibold py-2 px-4 rounded mx-16">
+          <button className="border border-blue-500 bg-blue-900 text-white font-semibold py-2 px-4 rounded mx-16 hover:bg-blue-700 transition duration-300">
             Get Started
           </button>
           <a href="/bookcall">
-            <button className="border border-black bg-white text-black font-semibold py-2 px-4 rounded">
+            <button className="border border-black bg-white text-black font-semibold py-2 px-4 rounded hover:bg-gray-100 transition duration-300">
               Book a Call
             </button>
           </a>

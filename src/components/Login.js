@@ -32,7 +32,7 @@ const Login = () => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
-        console.log(user,token);
+        console.log(user, token);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
+      <div className="bg-white p-8 rounded-lg shadow-md w-11/12 sm:w-96">
         <h2 className="text-2xl font-bold mb-6">Let's get you that home</h2>
         <p className="mb-4 text-gray-600">Sign in to continue to your account</p>
         
@@ -52,13 +52,13 @@ const Login = () => {
           placeholder="Email"
           value={email}
           onChange={handleEmailChange}
-          className="w-full p-2 mb-4 border rounded"
+          className="w-full p-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
           aria-label="Email address"
         />
         
         <button
           onClick={handleEmailSubmit}
-          className="w-full bg-gray-300 text-gray-700 p-2 rounded mb-4 hover:bg-gray-400"
+          className="w-full bg-pink-500 text-white p-2 rounded mb-4 hover:bg-pink-600 transition-colors"
           aria-label="Continue with your email"
         >
           Continue with your email
@@ -76,7 +76,7 @@ const Login = () => {
         
         <button
           onClick={handleGoogleSignIn}
-          className="w-full border border-gray-300 p-2 rounded flex items-center justify-center"
+          className="w-full border border-gray-300 p-2 rounded flex items-center justify-center transition-colors hover:bg-gray-200"
           aria-label="Continue with Google"
         >
           <img src="https://image.similarpng.com/very-thumbnail/2020/06/Logo-google-icon-PNG.png" alt="Google" className="w-6 h-6 mr-2" />
