@@ -16,10 +16,9 @@ const PropertyManagementUI = () => {
   return (
     <div>
       {/* Navbar */}
-      <header className='w-full fixed bg-white'>
-        <LogedInNavbar />
-      </header>
-      <main className="max-w-3xl mx-auto p-6 mt-20 font-sans">
+      <LogedInNavbar />
+      
+      <main className="max-w-3xl mx-auto  font-sans ">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-semibold">Your properties</h1>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">

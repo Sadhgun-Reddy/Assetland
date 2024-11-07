@@ -1,13 +1,14 @@
 import React, { useState, useCallback } from 'react';
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from '../utils/firebase';
+import { useNavigate } from 'react-router-dom';
 
 const providers = new GoogleAuthProvider();
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
+ const navigate=useNavigate()
   const handleEmailChange = useCallback((e) => {
     setEmail(e.target.value);
   }, []);
@@ -33,6 +34,7 @@ const Login = () => {
         const token = credential.accessToken;
         const user = result.user;
         console.log(user, token);
+        navigate('/transactions')
       })
       .catch((error) => {
         const errorMessage = error.message;

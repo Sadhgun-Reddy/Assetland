@@ -27,7 +27,7 @@ const LogedInNavbar = () => {
         navigate("/guide");
     };
     const gotoHomepage = () => {
-        dispatch(removeUser());
+        dispatch(removeUser()); 
         navigate("/");
     };
     const gotoSpeak = () => {
@@ -38,8 +38,11 @@ const LogedInNavbar = () => {
     };
 
     return (
-        <header className='flex justify-between items-center px-6 py-4 bg-white shadow fixed'>
-            <div className="text-3xl font-bold text-[#d6156c]">Assetland</div>
+        
+        <header className='mt-0 flex justify-between items-center px-6 py-4 bg-white shadow fixed w-full'>
+            <div className="text-3xl font-bold text-[#d6156c]">
+                Assetland
+            </div>
             <div className="flex-grow max-w-md mx-4">
                 <div className="relative">
                     <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">

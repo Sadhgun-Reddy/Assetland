@@ -13,7 +13,7 @@ const AuthListener = () => {
       if (user) {
         const { uid, displayName, email } = user;
         dispatch(addUser({ email:email, displayName:displayName, uid:uid }));
-        navigate("/transactions")
+        //navigate("/transactions")
       } else {
         dispatch(removeUser());
         navigate("/");

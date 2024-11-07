@@ -2,7 +2,6 @@ import { Provider } from "react-redux";
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import appStore from "./utils/appStore"; // Ensure this file exports a valid store
 import AuthListener from "./components/AuthListener"; // Import AuthListener
-import Body from "./components/Body";
 import BookaCall from "./components/BookCall";
 import HomebuyerGuide from "./components/BrambleGuides";
 import CashBackCalculater from "./components/CashBackCalculater";
@@ -15,6 +14,8 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import CookiePolicy from "./components/CookiePolicy";
 import UserAccount from "./components/Dashboard";
 import Footer from "./components/Footer";
+import SignUpHomePage from "./components/SignUpHomePage";
+import ForSale from "./components/ForSale";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
       <Router>
         <AuthListener />  
         <Routes>
-          <Route path="/" element={<Body />} />
+          <Route path="/" element={<SignUpHomePage />} />
           <Route path="/cashback" element={<CashBackCalculater />} />
           <Route path="/speak" element={<ContactModal />} />
           <Route path="/guide" element={<HomebuyerGuide />} />
@@ -35,6 +36,7 @@ function App() {
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           <Route path="/profile" element={<UserAccount />} />
           <Route path="/Footer" element={<Footer />} />
+          <Route path="/forSale" element={<ForSale />} />
 
         </Routes>
       </Router>
