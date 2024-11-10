@@ -89,7 +89,7 @@ const LogedInNavbar = () => {
                                 <button onClick={gotoSpeak} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4 text-sm font-semibold flex items-center space-x-2 hover:underline w-full text-left'>Speak to our team</button>
                             </span>
                             <span>
-                                <button onClick={gotoHome} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4 text-sm font-semibold flex items-center space-x-2 hover:underline mt-4 w-full text-left'>About Bramble</button>
+                                <button onClick={gotoHome} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4 text-sm font-semibold flex items-center space-x-2 hover:underline mt-4 w-full text-left'>About Assetland</button>
                             </span>
                             <span>
                                 <button onClick={gotoHomepage} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4 text-sm font-semibold flex items-center space-x-2 hover:underline mt-4 w-full text-left'>Log Out</button>

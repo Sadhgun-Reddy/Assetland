@@ -96,7 +96,7 @@ const Navbar = () => {
                   <button onClick={gotoSpeak} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors'>Speak to our team</button>
                 </span>
                 <span>
-                  <button onClick={gotoHomepage} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors'>About Bramble</button>
+                  <button onClick={gotoHomepage} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors'>About Assetland</button>
                 </span>
               </div>
             </div>

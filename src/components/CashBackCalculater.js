@@ -76,11 +76,11 @@ const CashBackCalculatorComponent = () => {
             <span>${parseFloat(commission).toLocaleString()}</span>
           </p>
           <p>
-            Bramble's flat fee:{" "}
+            Assetland's flat fee:{" "}
             <span>${flatFee.toLocaleString()}</span>
           </p>
           <p>
-            Your estimated rebate with Bramble*:{" "}
+            Your estimated rebate with Assetland*:{" "}
             <span className="text-pink-500 font-bold">
               ${parseFloat(rebate).toLocaleString()}
             </span>
@@ -91,7 +91,7 @@ const CashBackCalculatorComponent = () => {
         </div>
 
         <p>
-          When you use Bramble, you're getting all the expertise of the best agents in the business with none of the waiting involved in working with a traditional agent that's not responding to your emails. Plus you get a huge chunk of money back ($20,000 for the average home buyer in California!).
+          When you use Assetland, you're getting all the expertise of the best agents in the business with none of the waiting involved in working with a traditional agent that's not responding to your emails. Plus you get a huge chunk of money back ($20,000 for the average home buyer in California!).
         </p>
         
         <div className="mt-10 flex">

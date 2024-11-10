@@ -7,12 +7,12 @@ const PrivacyPolicy = () => {
       <p className="text-sm text-gray-600 mb-6">Last updated August 28, 2024</p>
 
       <p className="mb-4">
-        This Privacy Notice for Village AI (doing business as Bramble) ("we," "us," or "our"), describes how and why we might access, collect, store, use, and/or share ("process") your personal information when you use our services ("Services"), including when you:
+        This Privacy Notice for Village AI (doing business as Assetland) ("we," "us," or "our"), describes how and why we might access, collect, store, use, and/or share ("process") your personal information when you use our services ("Services"), including when you:
       </p>
 
       <ul className="list-disc pl-8 mb-4">
         <li className="mb-2">
-          Visit our website at <a href="https://usebramble.com" className="text-blue-600 hover:underline">https://usebramble.com</a>, or any website of ours that links to this Privacy Notice
+          Visit our website at <a href="/" className="text-blue-600 hover:underline">https:WebsiteLink</a>, or any website of ours that links to this Privacy Notice
         </li>
         <li>
           Engage with us in other related ways, including any sales, marketing, or events
@@ -20,7 +20,7 @@ const PrivacyPolicy = () => {
       </ul>
 
       <p className="mb-6">
-        <strong>Questions or concerns?</strong> Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:team@usebramble.com" className="text-blue-600 hover:underline">team@usebramble.com</a>.
+        <strong>Questions or concerns?</strong> Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:team@Assetland.com" className="text-blue-600 hover:underline">team@Assetland.com</a>.
       </p>
 
       <h2 className="text-2xl font-bold mb-4">Summary of Key Points</h2>

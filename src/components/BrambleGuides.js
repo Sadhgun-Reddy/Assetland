@@ -44,7 +44,7 @@ const HomebuyerGuide = () => {
       <main className="py-8">
         <h2 className="text-3xl font-semibold mb-6 text-center">Assetland Guides</h2>
         <p className="mb-6 text-center max-w-2xl mx-auto">
-          Welcome to Bramble Guides, your one-stop-shop for detailed, behind-the-scenes deep dives into everything when buying a home.
+          Welcome to Assetland Guides, your one-stop-shop for detailed, behind-the-scenes deep dives into everything when buying a home.
         </p>
         
         <div className="mb-8 flex justify-center">

@@ -9,7 +9,7 @@ const CookiePolicy = () => {
       
       <div className="space-y-6 text-sm leading-relaxed">
         <p>
-          This Cookie Policy explains how Village AI ("Company," "we," "us," and "our") uses cookies and similar technologies to recognize you when you visit our website at <a href="https://usebramble.com" className="text-blue-600 hover:underline">https://usebramble.com</a> ("Website"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.
+          This Cookie Policy explains how Village AI ("Company," "we," "us," and "our") uses cookies and similar technologies to recognize you when you visit our website at <a href="/" className="text-blue-600 hover:underline">https:#websiteLink</a> ("Website"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.
         </p>
         
         <p>

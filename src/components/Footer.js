@@ -11,7 +11,7 @@ const Footer = () => {
         <span className="ml-2">CalDRE# 02247723</span>
       </div>
       <div className="flex flex-wrap justify-center sm:justify-end">
-        <a href="mailto:team@usebramble.com" className="hover:underline mx-1">team@usebramble.com</a>
+        <a href="mailto:team@Assetland.com" className="hover:underline mx-1">team@useAssetland.com</a>
         <span className="mx-1">·</span>
         <a href="/terms" className="hover:underline mx-1">Terms of Use</a>
         <span className="mx-1">·</span>

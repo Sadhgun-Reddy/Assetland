@@ -17,12 +17,12 @@ const SignUpHomePage = () => {
     <div className="bg-white">
       <Navbar className="w-full" />
 
-      {/* Bramble Homepage */}
+      {/*  Homepage */}
       <div className="flex flex-col py-4 md:flex-row items-center md:items-start pt-16">
         <main className="max-w-6xl mx-auto px-6 mt-8 md:mt-16 flex flex-col md:flex-row items-center md:items-start">
           <div className="md:w-2/3 pr-8">
             <h1 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6">Flat-fee<br />homebuying</h1>
-            <p className="text-lg md:text-2xl mb-2 md:mb-4">Buy any home with Bramble.</p>
+            <p className="text-lg md:text-2xl mb-2 md:mb-4">Buy any home with Assetland.</p>
             <p className="text-lg md:text-2xl mb-4 md:mb-8">
               Get <span className="text-[#d6156c] font-bold">$20,000</span> back.
             </p>
@@ -39,16 +39,16 @@ const SignUpHomePage = () => {
           <div className="w-full md:w-1/3 mt-4 md:mt-0">
             <img
               src="https://usebramble.com/assets/bramble-app-DmbpbX1J.webp"
-              alt="Bramble App"
+              alt="Assetland App"
               className="w-full h-auto"
             />
           </div>
         </main>
       </div>
 
-      {/* Bramble Process Page */}
+      {/* Process Page */}
       <div className="p-6 md:p-8">
-        <h1 className="text-2xl md:text-4xl font-bold mb-8 md:mb-12 text-center">Bramble supports buyers every step of the way</h1>
+        <h1 className="text-2xl md:text-4xl font-bold mb-8 md:mb-12 text-center">Assetland supports buyers every step of the way</h1>
         <div className="max-w-6xl mx-auto space-y-12 md:space-y-24">
           {/* Step 1 */}
           <div className="flex flex-col md:flex-row items-center md:space-x-8 space-y-6 md:space-y-0">
@@ -81,7 +81,7 @@ const SignUpHomePage = () => {
         </div>
       </div>
 
-      {/* Bramble Closing and Fee Page */}
+      {/*  Closing and Fee Page */}
       <div className="bg-white p-6 md:p-8">
         <div className="max-w-6xl mx-auto space-y-12 md:space-y-24">
           {/* Step 3 */}
@@ -124,16 +124,16 @@ const SignUpHomePage = () => {
               <div className="breakdown mt-5">
                 <p><strong>How it breaks down:</strong></p>
                 <p>Traditional agent commission: <span>${parseFloat(commission).toLocaleString()}</span></p>
-                <p>Bramble's flat fee: <span>${flatFee.toLocaleString()}</span></p>
-                <p>Your estimated rebate with Bramble*: <span className="text-pink-500 font-bold">${parseFloat(rebate).toLocaleString()}</span></p>
+                <p>Assetland's flat fee: <span>${flatFee.toLocaleString()}</span></p>
+                <p>Your estimated rebate with Assetland*: <span className="text-pink-500 font-bold">${parseFloat(rebate).toLocaleString()}</span></p>
                 <small className="block mt-2">*assuming 2.5% buyer commission or credit from seller</small>
               </div>
               <p className="mt-4">
-                When you use Bramble, you're getting all the expertise of the best agents in the business with none of the waiting involved in working with a traditional agent.
+                When you use Assetland, you're getting all the expertise of the best agents in the business with none of the waiting involved in working with a traditional agent.
               </p>
             </div>
             <div className="w-full md:w-1/3">
-              <img src="https://usebramble.com/assets/bramble-savings-D9ITU2-P.webp" alt="Bramble savings" className="w-full h-auto" />
+              <img src="https://usebramble.com/assets/bramble-savings-D9ITU2-P.webp" alt="Assetland savings" className="w-full h-auto" />
             </div>
           </div>
         </div>
