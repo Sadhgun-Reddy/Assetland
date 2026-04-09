@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 
 const SortingComponent = ({ items }) => {
   const [sortOption, setSortOption] = useState("default");
@@ -7,18 +7,20 @@ const SortingComponent = ({ items }) => {
     setSortOption(event.target.value);
   };
 
-  const sortedItems = [...items].sort((a, b) => {
-    switch (sortOption) {
-      case "name":
-        return a.name.localeCompare(b.name);
-      case "price":
-        return a.price - b.price;
-      case "date":
-        return new Date(b.date) - new Date(a.date);
-      default:
-        return 0;
-    }
-  });
+  const sortedItems = useMemo(() => {
+    return [...items].sort((a, b) => {
+      switch (sortOption) {
+        case "name":
+          return a.name.localeCompare(b.name);
+        case "price":
+          return a.price - b.price;
+        case "date":
+          return new Date(b.date) - new Date(a.date);
+        default:
+          return 0;
+      }
+    });
+  }, [items, sortOption]);
 
   return (
     <div className="p-4">
