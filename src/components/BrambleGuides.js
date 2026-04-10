@@ -12,26 +12,26 @@ const GuideItem = ({ image, title, description }) => (
   </div>
 );
 
-const HomebuyerGuide = () => {
-  const guides = [
-    {
-      image: "https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Understanding the Paperwork: A Guide to Homebuyer Agreements",
-      description: "Confused about all the agreements you're being asked to sign? No problem - we'll give you a quick overview of all the major paperwork and some common things to watch out for."
-    },
-    {
-      image: "https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Mythbusters: Homebuyer Edition",
-      description: "There are a lot of dubious claims out there since the NAR settlement came into effect. For example, did you know you don't need to sign exclusive agreements to tour homes or use an agent? We're setting the record straight."
-    },
-    {
-      image: "https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Could Kamala pay your down payment?",
-      description: "Down payments are expensive, but Kamala Harris has proposed $25k in assistance for first-time homebuyers. Check out more about her plan and other down payment assistance programs here."
-    },
-    // Add more guide objects as needed
-  ];
+const guides = [
+  {
+    image: "https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Understanding the Paperwork: A Guide to Homebuyer Agreements",
+    description: "Confused about all the agreements you're being asked to sign? No problem - we'll give you a quick overview of all the major paperwork and some common things to watch out for."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Mythbusters: Homebuyer Edition",
+    description: "There are a lot of dubious claims out there since the NAR settlement came into effect. For example, did you know you don't need to sign exclusive agreements to tour homes or use an agent? We're setting the record straight."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Could Kamala pay your down payment?",
+    description: "Down payments are expensive, but Kamala Harris has proposed $25k in assistance for first-time homebuyers. Check out more about her plan and other down payment assistance programs here."
+  },
+  // Add more guide objects as needed
+];
 
+const HomebuyerGuide = () => {
   return (
     <div className="container mx-auto px-4 max-w-6xl">
       <header className="py-6 flex justify-between items-center">
