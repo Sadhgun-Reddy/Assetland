@@ -6,6 +6,37 @@ import HouseDetailModal from './HouseDetailModal';
 
 const items = [
 ];
+
+const LISTINGS = [
+  {
+    id: 1,
+    price: 325000,
+    beds: 4,
+    baths: 3,
+    address: '437 Winthrop Dr, Pittsburgh, PA 15237',
+    agent: 'Carol Tomayko'
+  },
+  {
+    id: 2,
+    price: 285000,
+    beds: 4,
+    baths: 2,
+    sqft: 2088,
+    address: '1978 3rd Ave, York, PA 17402',
+    agent: 'BERKSHIRE HATHAWAY HOMESERVICES HOMESALE REALTY'
+  },
+
+  {
+    id: 3,
+    price: 376800,
+    beds: 4,
+    baths: 3,
+    sqft: 2325,
+    address: '1666 Cedar Creek Rd, Fayetteville, NC 28312',
+    agent: 'CRESFUND REALTY, LINDSAY COLLINS'
+  }
+];
+
 const ForSale = () => {
     
   const [savedHomes, setSavedHomes] = useState({});
@@ -146,35 +177,7 @@ const ForSale = () => {
 
             {/* Listings Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 ">
-              {[
-                {
-                  id: 1,
-                  price: 325000,
-                  beds: 4,
-                  baths: 3,
-                  address: '437 Winthrop Dr, Pittsburgh, PA 15237',
-                  agent: 'Carol Tomayko'
-                },
-                {
-                  id: 2,
-                  price: 285000,
-                  beds: 4,
-                  baths: 2,
-                  sqft: 2088,
-                  address: '1978 3rd Ave, York, PA 17402',
-                  agent: 'BERKSHIRE HATHAWAY HOMESERVICES HOMESALE REALTY'
-                },
-                
-                {
-                  id: 3,
-                  price: 376800,
-                  beds: 4,
-                  baths: 3,
-                  sqft: 2325,
-                  address: '1666 Cedar Creek Rd, Fayetteville, NC 28312',
-                  agent: 'CRESFUND REALTY, LINDSAY COLLINS'
-                }
-              ].map((listing) => (
+              {LISTINGS.map((listing) => (
                 <div
                   key={listing.id}
                   className="border rounded-lg overflow-hidden hover:shadow-2xl hover:cursor-pointer"
