@@ -28,7 +28,6 @@ const UserAccount = () => {
     };
 
     // Handle form submission logic here
-    console.log('Form submitted:', userInfo);
 
     // Reset form fields
     setFirstName('');
