@@ -25,10 +25,12 @@ const Login = () => {
   }, [email]);
 
   const handleGoogleSignIn = useCallback(() => {
-    console.log('Google Sign-In clicked');
 
     signInWithPopup(auth, providers)
       .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
         navigate('/transactions')
       })
       .catch((error) => {
