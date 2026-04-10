@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Search, ChevronDown, Heart } from 'lucide-react';
 import Navbar from './NavBar';
 import HouseDetailModal from './HouseDetailModal';
@@ -11,12 +11,12 @@ const ForSale = () => {
   const [savedHomes, setSavedHomes] = useState({});
   const [selectedListing, setSelectedListing] = useState(null);
 
-  const toggleSaveHome = (id) => {
+  const toggleSaveHome = useCallback((id) => {
     setSavedHomes(prev => ({
       ...prev,
       [id]: !prev[id]
     }));
-  };
+  }, []);
 
   const openModal = (listing) => setSelectedListing(listing);
   const handleModalClose = () => {
