@@ -20,20 +20,17 @@ const Login = () => {
       setErrorMessage('Please enter a valid email address.');
     } else {
       setErrorMessage('');
-      console.log('Login link sent to:', email);
       // Here you would typically send a login link to the user's email
     }
   }, [email]);
 
   const handleGoogleSignIn = useCallback(() => {
-    console.log('Google Sign-In clicked');
 
     signInWithPopup(auth, providers)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
-        console.log(user, token);
         navigate('/transactions')
       })
       .catch((error) => {
