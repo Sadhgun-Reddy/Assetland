@@ -7,20 +7,31 @@ const SortingComponent = ({ items }) => {
     setSortOption(event.target.value);
   };
 
+  const processedItems = useMemo(() => {
+    return items.map(item => {
+      const parsedDate = new Date(item.date);
+      return {
+        ...item,
+        parsedDate,
+        formattedDate: parsedDate.toLocaleDateString()
+      };
+    });
+  }, [items]);
+
   const sortedItems = useMemo(() => {
-    return [...items].sort((a, b) => {
+    return [...processedItems].sort((a, b) => {
       switch (sortOption) {
         case "name":
           return a.name.localeCompare(b.name);
         case "price":
           return a.price - b.price;
         case "date":
-          return new Date(b.date) - new Date(a.date);
+          return b.parsedDate - a.parsedDate;
         default:
           return 0;
       }
     });
-  }, [items, sortOption]);
+  }, [processedItems, sortOption]);
 
   return (
     <div className="p-4">
@@ -45,7 +56,7 @@ const SortingComponent = ({ items }) => {
           <div key={item.id} className="p-4 border rounded-md shadow-md">
             <h2 className="text-lg font-semibold">{item.name}</h2>
             <p>Price: ${item.price}</p>
-            <p>Date: {new Date(item.date).toLocaleDateString()}</p>
+            <p>Date: {item.formattedDate}</p>
           </div>
         ))}
       </div>
