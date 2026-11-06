@@ -1,51 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Navbar from './NavBar';
 
-const ContactModal = ({ isOpen, onClose }) => {
-  if (isOpen) return null; // Prevent rendering if not open ERROR
+const ContactModal = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSendMessage = (event) => {
     event.preventDefault();
-    // Handle the send message logic here
+    if (email && message) {
+      alert('Message sent successfully!');
+      setEmail('');
+      setMessage('');
+      navigate(-1); // Go back
+    } else {
+      alert('Please fill out all fields.');
+    }
+  };
+
+  const onClose = () => {
+    navigate(-1);
   };
 
   return (
-    <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
-      onClick={onClose} // Close modal on overlay click
-      aria-hidden="true"
-    >
-      <div
-        className="bg-white p-6 rounded-lg shadow-lg w-96"
-        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
-      >
-        <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
-        <p className="mb-6 text-gray-600">Questions, concerns, feedback? Reach out!</p>
+    <div className="bg-gray-100 min-h-screen">
+      <Navbar />
+      <div className="pt-24 flex justify-center items-center px-4">
+        <div className="bg-white p-8 rounded-xl shadow-xl w-full max-w-md relative">
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-900"
+            aria-label="Close"
+          >
+            <span className="text-xl font-bold">×</span>
+          </button>
 
-        <input
-          type="email"
-          placeholder="Your email"
-          className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4"
-        />
-        <textarea
-          placeholder="Type your message here"
-          className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 h-24"
-        ></textarea>
+          <h2 className="text-2xl font-bold mb-4 text-[#d6156c]">Contact Us</h2>
+          <p className="mb-6 text-gray-600">Questions, concerns, feedback? Reach out!</p>
 
-        <button
-          onClick={handleSendMessage} // Handle message sending
-          className="w-full bg-[#d6156c] text-white font-semibold py-2 rounded-lg mb-4"
-        >
-          Send Message
-        </button>
+          <form onSubmit={handleSendMessage} className="space-y-4">
+            <input
+              type="email"
+              placeholder="Your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#d6156c]"
+              required
+            />
+            <textarea
+              placeholder="Type your message here"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#d6156c]"
+              required
+            ></textarea>
 
-        <button
-          onClick={onClose} // Close the modal
-          className="text-gray-500 hover:text-gray-900"
-        >
-          <span className="text-sm font-semibold flex items-center space-x-2 hover:underline">
-            Close
-          </span>
-        </button>
+            <button
+              type="submit"
+              className="w-full bg-[#d6156c] text-white font-bold py-3 rounded-lg hover:bg-pink-700 transition-colors"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
