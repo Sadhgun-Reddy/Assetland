@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { Search, ChevronDown, Heart } from 'lucide-react';
 import Navbar from './NavBar';
 import HouseDetailModal from './HouseDetailModal';
@@ -60,18 +60,37 @@ const ForSale = () => {
     setSortOption(event.target.value);
   };
   
-  const sortedItems = [...items].sort((a, b) => {
-    switch (sortOption) {
-      case "name":
-        return a.name.localeCompare(b.name);
-      case "price":
-        return a.price - b.price;
-      case "date":
-        return new Date(b.date) - new Date(a.date);
-      default:
-        return 0;
+  const sortedItems = useMemo(() => {
+    if (sortOption === "default") {
+      return items.map(item => ({
+        ...item,
+        formattedDate: new Date(item.date).toLocaleDateString()
+      }));
     }
-  });
+
+    return items
+      .map(item => ({
+        item,
+        dateValue: sortOption === "date" ? new Date(item.date).getTime() : 0,
+        formattedDate: new Date(item.date).toLocaleDateString()
+      }))
+      .sort((a, b) => {
+        switch (sortOption) {
+          case "name":
+            return a.item.name.localeCompare(b.item.name);
+          case "price":
+            return a.item.price - b.item.price;
+          case "date":
+            return b.dateValue - a.dateValue;
+          default:
+            return 0;
+        }
+      })
+      .map(obj => ({
+        ...obj.item,
+        formattedDate: obj.formattedDate
+      }));
+  }, [items, sortOption]);
 
   return (
     <div>
@@ -110,7 +129,7 @@ const ForSale = () => {
                 <div key={listing.id} className="p-4 border rounded-md shadow-md">
                   <h2 className="text-lg font-semibold">{listing.name}</h2>
                   <p>Price: ${listing.price}</p>
-                  <p>Date: {new Date(listing.date).toLocaleDateString()}</p>
+                  <p>Date: {listing.formattedDate}</p>
                 </div>
               ))}
             </div>

@@ -1,0 +1,3 @@
+## 2024-11-06 - [Avoid new Date() parsing in React Sort Loops]
+**Learning:** Performing `new Date()` inside a `sort` comparator scales poorly (O(N log N)) when re-calculating values on every render.
+**Action:** Applied the Schwartzian transform inside `useMemo` hooks. This technique maps the array into a temporary object holding pre-computed timestamps (`getTime`) and `toLocaleDateString` formats, sorts that object list based on timestamps, and finally maps them back to the original item shape plus the pre-computed string. This runs the `new Date` calculations in O(N) only when the array or sort dependencies change, completely preventing the date parsing overhead in render mappings.

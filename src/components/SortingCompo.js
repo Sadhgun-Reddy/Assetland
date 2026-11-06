@@ -8,18 +8,35 @@ const SortingComponent = ({ items }) => {
   };
 
   const sortedItems = useMemo(() => {
-    return [...items].sort((a, b) => {
-      switch (sortOption) {
-        case "name":
-          return a.name.localeCompare(b.name);
-        case "price":
-          return a.price - b.price;
-        case "date":
-          return new Date(b.date) - new Date(a.date);
-        default:
-          return 0;
-      }
-    });
+    if (sortOption === "default") {
+      return items.map(item => ({
+        ...item,
+        formattedDate: new Date(item.date).toLocaleDateString()
+      }));
+    }
+
+    return items
+      .map(item => ({
+        item,
+        dateValue: sortOption === "date" ? new Date(item.date).getTime() : 0,
+        formattedDate: new Date(item.date).toLocaleDateString()
+      }))
+      .sort((a, b) => {
+        switch (sortOption) {
+          case "name":
+            return a.item.name.localeCompare(b.item.name);
+          case "price":
+            return a.item.price - b.item.price;
+          case "date":
+            return b.dateValue - a.dateValue;
+          default:
+            return 0;
+        }
+      })
+      .map(obj => ({
+        ...obj.item,
+        formattedDate: obj.formattedDate
+      }));
   }, [items, sortOption]);
 
   return (
@@ -45,7 +62,7 @@ const SortingComponent = ({ items }) => {
           <div key={item.id} className="p-4 border rounded-md shadow-md">
             <h2 className="text-lg font-semibold">{item.name}</h2>
             <p>Price: ${item.price}</p>
-            <p>Date: {new Date(item.date).toLocaleDateString()}</p>
+            <p>Date: {item.formattedDate}</p>
           </div>
         ))}
       </div>
