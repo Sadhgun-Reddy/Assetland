@@ -50,10 +50,9 @@ const Navbar = () => {
           <button
             onClick={toggleSidebar}
             aria-label="Open menu"
-            aria-expanded={sidebarOpen}
-            className="p-1 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#d6156c] transition-colors"
+            className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6156c] transition-colors"
           >
-            <Menu className="cursor-pointer" />
+            <Menu className="cursor-pointer w-6 h-6" />
           </button>
 
           {/* Sidebar */}
@@ -66,7 +65,7 @@ const Navbar = () => {
                 <button
                   onClick={toggleSidebar}
                   aria-label="Close menu"
-                  className="p-2 -mr-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-[#d6156c] transition-colors"
+                  className="p-2 text-gray-500 hover:text-gray-900 rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6156c] transition-colors"
                 >
                   X
                 </button>
