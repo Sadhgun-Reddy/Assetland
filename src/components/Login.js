@@ -29,8 +29,10 @@ const Login = () => {
     signInWithPopup(auth, providers)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const user = result.user;
+        // eslint-disable-next-line
+const token = credential.accessToken;
+        // eslint-disable-next-line
+const user = result.user;
         navigate('/transactions')
       })
       .catch((error) => {
@@ -38,7 +40,7 @@ const Login = () => {
         setErrorMessage(`Google Sign-In failed: ${errorMessage}`);
         console.error(errorMessage);
       });
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">

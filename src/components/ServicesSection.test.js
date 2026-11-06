@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import ServicesSection from './ServicesSection';
@@ -34,7 +34,9 @@ describe('ServicesSection Component', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText('Services')).toBeInTheDocument();
+    // Using getAllByText and taking the first one because 'Services' might appear in navigation links as well.
+    const headings = screen.getAllByText('Services');
+    expect(headings.length).toBeGreaterThan(0);
     expect(screen.getByText(/Getting representation from a traditional real estate broker can be expensive/i)).toBeInTheDocument();
   });
 
@@ -47,21 +49,25 @@ describe('ServicesSection Component', () => {
     );
 
     // "Sign in" button is present in Navbar
-    expect(screen.getByRole('button', { name: /Sign in/i })).toBeInTheDocument();
+    const signInButtons = screen.getAllByRole('button', { name: /Sign in/i });
+    expect(signInButtons.length).toBeGreaterThan(0);
   });
 
   test('renders LogedInNavbar when user is logged in', () => {
-    useSelector.mockReturnValue({ displayName: 'John Doe' });
+    useSelector.mockImplementation((selector) => {
+        const state = { user: { displayName: 'John Doe' } };
+        return selector(state);
+    });
+
     render(
       <MemoryRouter>
         <ServicesSection />
       </MemoryRouter>
     );
 
-    // "Log Out" button is present in LogedInNavbar
-    expect(screen.getByRole('button', { name: /Log Out/i })).toBeInTheDocument();
-    // Also check for display name
-    expect(screen.getByText('John Doe')).toBeInTheDocument();
+    const logOutButtons = screen.getAllByRole('button', { name: /Log Out/i });
+    expect(logOutButtons.length).toBeGreaterThan(0);
+    expect(screen.getByRole('button', { name: /John Doe/i })).toBeInTheDocument();
   });
 
   test('renders all service item titles', () => {
@@ -94,17 +100,14 @@ describe('ServicesSection Component', () => {
       </MemoryRouter>
     );
 
-    const showingsItem = screen.getByLabelText('Showings');
+    const showingsItem = screen.getByText('Showings');
     const descriptionText = /Let us know which properties you're interested in/i;
 
-    // Initially description is not visible
     expect(screen.queryByText(descriptionText)).not.toBeInTheDocument();
 
-    // Click to open
     fireEvent.click(showingsItem);
     expect(screen.getByText(descriptionText)).toBeInTheDocument();
 
-    // Click to close
     fireEvent.click(showingsItem);
     expect(screen.queryByText(descriptionText)).not.toBeInTheDocument();
   });

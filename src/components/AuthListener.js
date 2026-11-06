@@ -20,8 +20,8 @@ const AuthListener = () => {
       }
     });
 
-    return () => unsubscribe();
-  }, []);
+    return () => { if (typeof unsubscribe === 'function') unsubscribe(); };
+  }, [dispatch, navigate]);
 
   
 };
