@@ -47,7 +47,14 @@ const Navbar = () => {
         <div className="flex items-center space-x-4">
           <a href='/' className='px-3 hidden md:inline'>Help</a>
           <button onClick={gotoLoginPage} className="px-4 py-2 bg-[#d6156c] text-white rounded-full font-semibold transition-colors hover:bg-[#a91256]">Sign in</button>
-          <Menu className="cursor-pointer " onClick={toggleSidebar} />
+          <button
+            onClick={toggleSidebar}
+            aria-label="Open menu"
+            aria-expanded={sidebarOpen}
+            className="p-1 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#d6156c] transition-colors"
+          >
+            <Menu className="cursor-pointer" />
+          </button>
 
           {/* Sidebar */}
           <div
@@ -56,7 +63,13 @@ const Navbar = () => {
             <div className="p-6">
               <div className="flex justify-between items-center mb-6">
                 <div className="text-3xl font-bold text-[#d6156c]">Assetland</div>
-                <button onClick={toggleSidebar} className="text-gray-500 hover:text-gray-900">X</button>
+                <button
+                  onClick={toggleSidebar}
+                  aria-label="Close menu"
+                  className="p-2 -mr-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-[#d6156c] transition-colors"
+                >
+                  X
+                </button>
               </div>
               
               {/* Navigation Links - Visible only in the sidebar on mobile */}
