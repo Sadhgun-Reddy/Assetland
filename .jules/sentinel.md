@@ -1,0 +1,4 @@
+## 2024-11-06 - [Hardcoded Firebase API Key and Committed .env File]
+**Vulnerability:** A hardcoded Firebase API key (`apiKey: "AIzaSyBQvLPNXu4OrAuITlPfQrPUl2gUSNe5v5g"`) was discovered in `src/utils/firebase.js`. Additionally, the local `.env` file, which contained other secrets, was being tracked by git.
+**Learning:** Hardcoded credentials expose sensitive backend infrastructure directly to the client bundle and source control, creating a high risk of unauthorized access. Tracking `.env` files in git exacerbates this by persisting secrets in version history.
+**Prevention:** Always use environment variables (`process.env.REACT_APP_FIREBASE_API_KEY`) for sensitive credentials. Ensure `.env` is listed in `.gitignore` and run `git rm --cached .env` if it was accidentally committed. Create a `.env.example` to document required variables safely.
