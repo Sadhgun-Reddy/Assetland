@@ -4,7 +4,8 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 import { TextEncoder, TextDecoder } from 'util';
+import { ReadableStream } from 'stream/web';
+
 global.TextEncoder = TextEncoder;
 global.TextDecoder = TextDecoder;
-import { ReadableStream } from 'stream/web';
 global.ReadableStream = ReadableStream;
