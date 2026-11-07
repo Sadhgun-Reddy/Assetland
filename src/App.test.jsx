@@ -1,17 +1,18 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 import App from './App';
 
 // Mock react-redux and firebase
-jest.mock('react-redux', () => ({
-  useSelector: jest.fn(),
-  useDispatch: () => jest.fn(),
+vi.mock('react-redux', () => ({
+  useSelector: vi.fn(),
+  useDispatch: () => vi.fn(),
   Provider: ({ children }) => <div>{children}</div>
 }));
 
-jest.mock('./utils/firebase', () => ({
+vi.mock('./utils/firebase', () => ({
   auth: {
-    onAuthStateChanged: jest.fn(() => () => {})
+    onAuthStateChanged: vi.fn(() => () => {})
   }
 }));
 

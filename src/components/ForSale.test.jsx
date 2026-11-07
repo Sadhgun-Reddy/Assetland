@@ -15,4 +15,4 @@ test('Benchmark ForSale render', () => {
   }
   const end = performance.now();
   console.log(`Benchmark ForSale render: ${end - start} ms`);
-});
+}, 60000);

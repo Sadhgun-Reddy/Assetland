@@ -1,10 +1,15 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, isSupported } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
+
+const apiKey =
+  (typeof import.meta !== 'undefined' && import.meta.env && (import.meta.env.VITE_FIREBASE_API_KEY || import.meta.env.REACT_APP_FIREBASE_API_KEY)) ||
+  (typeof process !== 'undefined' && process.env && (process.env.VITE_FIREBASE_API_KEY || process.env.REACT_APP_FIREBASE_API_KEY)) ||
+  '';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  apiKey,
   authDomain: "bramble-6d031.firebaseapp.com",
   projectId: "bramble-6d031",
   storageBucket: "bramble-6d031.appspot.com",
@@ -15,6 +20,15 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
 
-export const auth = getAuth();
+let analytics = null;
+if (typeof window !== "undefined" && apiKey) {
+  isSupported().then((supported) => {
+    if (supported) {
+      analytics = getAnalytics(app);
+    }
+  }).catch(() => {});
+}
+
+export { analytics };
+export const auth = getAuth(app);

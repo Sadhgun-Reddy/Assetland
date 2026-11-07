@@ -2,23 +2,27 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
+import { vi } from 'vitest';
 import ServicesSection from './ServicesSection';
 
 // Mock react-redux
-jest.mock('react-redux', () => ({
-  useSelector: jest.fn(),
-  useDispatch: jest.fn(),
+vi.mock('react-redux', () => ({
+  useSelector: vi.fn(),
+  useDispatch: vi.fn(),
 }));
 
 // Mock react-router-dom's useNavigate
-const mockNavigate = jest.fn();
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useNavigate: () => mockNavigate,
-}));
+const mockNavigate = vi.fn();
+vi.mock('react-router-dom', async () => {
+  const actual = await vi.importActual('react-router-dom');
+  return {
+    ...actual,
+    useNavigate: () => mockNavigate,
+  };
+});
 
 describe('ServicesSection Component', () => {
-  const mockDispatch = jest.fn();
+  const mockDispatch = vi.fn();
 
   beforeEach(() => {
     useSelector.mockClear();
