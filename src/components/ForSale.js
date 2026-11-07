@@ -68,7 +68,7 @@ const ForSale = () => {
       parsedDateValue: new Date(item.date).getTime(),
       formattedDate: new Date(item.date).toLocaleDateString(),
     }));
-  }, [LISTINGS]);
+  }, []);
 
   const sortedItems = useMemo(() => {
     return [...processedItems].sort((a, b) => {
