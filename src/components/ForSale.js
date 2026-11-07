@@ -63,20 +63,24 @@ const ForSale = () => {
   // Added useMemo to `sortedItems` to prevent re-sorting on unrelated state changes (like selecting a listing).
   // Expected Impact: Reduces sorting/rendering time for large lists by ~30% (verified ~10s reduction in tests).
   const processedItems = useMemo(() => {
-    return items.map((item) => ({
+    return LISTINGS.map((item) => ({
       ...item,
       parsedDateValue: new Date(item.date).getTime(),
       formattedDate: new Date(item.date).toLocaleDateString(),
     }));
-  }, [items]);
+  }, [LISTINGS]);
 
   const sortedItems = useMemo(() => {
     return [...processedItems].sort((a, b) => {
       switch (sortOption) {
         case "name":
           return a.name.localeCompare(b.name);
-        case "price":
+        case "price_asc":
           return a.price - b.price;
+        case "price_desc":
+          return b.price - a.price;
+        case "agent":
+          return a.agent.localeCompare(b.agent);
         case "date":
           return b.parsedDateValue - a.parsedDateValue;
         default:
@@ -154,7 +158,7 @@ const ForSale = () => {
             <div className="flex justify-between items-end mb-6">
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Real Estate & Homes For Sale</h1>
-                <p className="text-gray-500 mt-1">{sortedListings.length} results</p>
+                <p className="text-gray-500 mt-1">{sortedItems.length} results</p>
               </div>
 
               <div className="relative">
@@ -175,7 +179,7 @@ const ForSale = () => {
 
             {/* Listings Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-20">
-              {sortedListings.map((listing) => (
+              {sortedItems.map((listing) => (
                 <div
                   key={listing.id}
                   className="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow cursor-pointer bg-white"
