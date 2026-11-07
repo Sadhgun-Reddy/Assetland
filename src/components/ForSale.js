@@ -75,8 +75,12 @@ const ForSale = () => {
       switch (sortOption) {
         case "name":
           return a.name.localeCompare(b.name);
-        case "price":
+        case "price_asc":
           return a.price - b.price;
+        case "price_desc":
+          return b.price - a.price;
+        case "agent":
+          return a.agent.localeCompare(b.agent);
         case "date":
           return b.parsedDateValue - a.parsedDateValue;
         default:
