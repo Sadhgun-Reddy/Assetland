@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Search, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Navbar from './NavBar';
 import Footer from './Footer';
 
@@ -58,10 +59,10 @@ const SignUpHomePage = () => {
             <div className="w-full md:w-2/3">
               <h2 className="text-xl md:text-3xl font-bold">Step 1: Evaluate listings</h2>
               <p className="text-md md:text-xl mt-2">Get instant disclosure reviews, schedule tours, and find your dream home.</p>
-              <a href="/bookcall" className="text-[#d6156c] flex items-center hover:underline mt-2">
+              <Link to="/bookcall" className="text-[#d6156c] flex items-center hover:underline mt-2">
                 Want help touring or evaluating a property? Let us know.
                 <ChevronRight className="ml-1" size={20} />
-              </a>
+              </Link>
             </div>
           </div>
           {/* Step 2 */}
@@ -69,10 +70,10 @@ const SignUpHomePage = () => {
             <div className="w-full md:w-2/3 order-last md:order-first">
               <h2 className="text-xl md:text-3xl font-bold">Step 2: Make competitive offers, fast</h2>
               <p className="text-md md:text-xl mt-2">Use our instant market reports, comps, and offer wizard to go from window shopper to homebuyer.</p>
-              <a href="/bookcall" className="text-[#d6156c] flex items-center hover:underline mt-2">
+              <Link to="/bookcall" className="text-[#d6156c] flex items-center hover:underline mt-2">
                 Want help touring or evaluating a property? Let us know.
                 <ChevronRight className="ml-1" size={20} />
-              </a>
+              </Link>
             </div>
             <div className="w-full md:w-1/3">
               <img src="https://usebramble.com/assets/bramble-offers-ZKcWzHKS.webp" alt="Make offers" className="w-full h-auto" />

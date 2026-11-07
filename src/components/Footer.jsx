@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -13,11 +14,11 @@ const Footer = () => {
       <div className="flex flex-wrap justify-center sm:justify-end">
         <a href="mailto:team@Assetland.com" className="hover:underline mx-1">team@useAssetland.com</a>
         <span className="mx-1">·</span>
-        <a href="/terms" className="hover:underline mx-1">Terms of Use</a>
+        <Link to="/terms" className="hover:underline mx-1">Terms of Use</Link>
         <span className="mx-1">·</span>
-        <a href="/privacypolicy" className="hover:underline mx-1">Privacy Policy</a>
+        <Link to="/privacypolicy" className="hover:underline mx-1">Privacy Policy</Link>
         <span className="mx-1">·</span>
-        <a href="cookies" className="hover:underline mx-1">Cookie Policy</a>
+        <Link to="/cookies" className="hover:underline mx-1">Cookie Policy</Link>
       </div>
     </footer>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -11,21 +11,27 @@ const Navbar = () => {
   };
 
   const gotoLoginPage = () => {
+    setSidebarOpen(false);
     navigate("/login");
   };
   const gotoCashback = () => {
+    setSidebarOpen(false);
     navigate("/cashback");
   };
   const gotoServices = () => {
+    setSidebarOpen(false);
     navigate("/services");
   };
   const gotoGuide = () => {
+    setSidebarOpen(false);
     navigate("/guide");
   };
   const gotoHomepage = () => {
+    setSidebarOpen(false);
     navigate("/");
   };
   const gotoSpeak = () => {
+    setSidebarOpen(false);
     navigate("/speak");
   };
 
@@ -33,19 +39,19 @@ const Navbar = () => {
     <div className='fixed w-full bg-white z-10'>
       <header className='flex justify-between items-center px-6 py-4 shadow'>
         <div className="text-3xl font-bold text-[#d6156c]">
-          <a href='/'>Assetland</a>
+          <Link to='/'>Assetland</Link>
         </div>
         
         {/* This section - Hidden on mobile, visible on larger screens */}
         <div className="hidden md:flex space-x-4">
-          <a href='/forSale' className='px-3'>Buy</a>
-          <a href='/' className='px-3'>Sell</a>
-          <a href='/' className='px-3'>AI Agent</a>
-          <a href='/' className='px-3'>Human Agent</a>
+          <Link to='/forSale' className='px-3 hover:text-[#d6156c] transition-colors'>Buy</Link>
+          <Link to='/' className='px-3 hover:text-[#d6156c] transition-colors'>Sell</Link>
+          <Link to='/' className='px-3 hover:text-[#d6156c] transition-colors'>AI Agent</Link>
+          <Link to='/' className='px-3 hover:text-[#d6156c] transition-colors'>Human Agent</Link>
         </div>
 
         <div className="flex items-center space-x-4">
-          <a href='/' className='px-3 hidden md:inline'>Help</a>
+          <Link to='/' className='px-3 hidden md:inline hover:text-[#d6156c] transition-colors'>Help</Link>
           <button onClick={gotoLoginPage} className="px-4 py-2 bg-[#d6156c] text-white rounded-full font-semibold transition-colors hover:bg-[#a91256]">Sign in</button>
           <button
             onClick={toggleSidebar}
@@ -74,42 +80,42 @@ const Navbar = () => {
               {/* Navigation Links - Visible only in the sidebar on mobile */}
               <ul className="space-y-6 md:hidden">
                 <li>
-                  <a href='/forSale' className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors'>Buy</a>
+                  <Link to='/forSale' onClick={toggleSidebar} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors block'>Buy</Link>
                 </li>
                 <li>
-                  <a href='/' className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors'>Sell</a>
+                  <Link to='/' onClick={toggleSidebar} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors block'>Sell</Link>
                 </li>
                 <li>
-                  <a href='/' className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors'>AI Agent</a>
+                  <Link to='/' onClick={toggleSidebar} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors block'>AI Agent</Link>
                 </li>
                 <li>
-                  <a href='/' className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors'>Human Agent</a>
+                  <Link to='/' onClick={toggleSidebar} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors block'>Human Agent</Link>
                 </li>
               </ul>
 
               {/* Additional Sidebar Links */}
               <ul className="space-y-6 mt-6">
                 <li>
-                  <button onClick={gotoLoginPage} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors'>Sign In</button>
+                  <button onClick={gotoLoginPage} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors w-full text-left'>Sign In</button>
                 </li>
                 <li>
-                  <button onClick={gotoCashback} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors'>Cash Back Calculator</button>
+                  <button onClick={gotoCashback} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors w-full text-left'>Cash Back Calculator</button>
                 </li>
                 <li>
-                  <button onClick={gotoServices} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors'>Services</button>
+                  <button onClick={gotoServices} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors w-full text-left'>Services</button>
                 </li>
                 <li>
-                  <button onClick={gotoGuide} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors'>Homebuyer Guides</button>
+                  <button onClick={gotoGuide} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors w-full text-left'>Homebuyer Guides</button>
                 </li>
               </ul>
 
               <div className="mt-12 space-y-4">
-                <span>
-                  <button onClick={gotoSpeak} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors'>Speak to our team</button>
-                </span>
-                <span>
-                  <button onClick={gotoHomepage} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors'>About Assetland</button>
-                </span>
+                <div>
+                  <button onClick={gotoSpeak} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors w-full text-left'>Speak to our team</button>
+                </div>
+                <div>
+                  <button onClick={gotoHomepage} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors w-full text-left'>About Assetland</button>
+                </div>
               </div>
             </div>
           </div>

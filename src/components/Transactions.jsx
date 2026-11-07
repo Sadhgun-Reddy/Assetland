@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Footer from './Footer';
 import LogedInNavbar from './LogedInNavbar';
+import Navbar from './NavBar';
 
 const PropertyManagementUI = () => {
+  const user = useSelector((state) => state.user);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [email, setEmail] = useState('');
 
@@ -15,9 +18,9 @@ const PropertyManagementUI = () => {
   return (
     <div>
       {/* Navbar */}
-      <LogedInNavbar />
+      {user ? <LogedInNavbar /> : <Navbar />}
       
-      <main className="max-w-3xl mx-auto  font-sans ">
+      <main className="max-w-3xl mx-auto font-sans pt-24">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-semibold">Your properties</h1>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">

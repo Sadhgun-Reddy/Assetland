@@ -8,7 +8,7 @@ const LogedInNavbar = () => {
     const dispatch = useDispatch();
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const navigate = useNavigate();
-    const displayName = useSelector((state) => state.user.displayName);
+    const displayName = useSelector((state) => state.user?.displayName || 'User');
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);

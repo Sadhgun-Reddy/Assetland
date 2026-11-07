@@ -2,28 +2,26 @@ import { useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { auth } from '../utils/firebase';
 import { addUser, removeUser } from '../utils/userSlice';
-import { useNavigate } from 'react-router-dom';
 
 const AuthListener = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged( (user) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         const { uid, displayName, email } = user;
-        dispatch(addUser({ email:email, displayName:displayName, uid:uid }));
-        //navigate("/transactions")
+        dispatch(addUser({ email: email, displayName: displayName, uid: uid }));
       } else {
         dispatch(removeUser());
-        navigate("/");
       }
     });
 
-    return () => { if (typeof unsubscribe === 'function') unsubscribe(); };
-  }, [dispatch, navigate]);
+    return () => {
+      if (typeof unsubscribe === 'function') unsubscribe();
+    };
+  }, [dispatch]);
 
-  
+  return null;
 };
 
 export default AuthListener;
