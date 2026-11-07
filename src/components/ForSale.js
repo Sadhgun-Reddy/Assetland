@@ -57,18 +57,18 @@ const ForSale = () => {
   };
   
   // ⚡ Bolt Performance Optimization:
-  // Use Schwartzian transform to map over items once, pre-calculating the date parsing and formatting.
+  // Use Schwartzian transform to map over LISTINGS once, pre-calculating the date parsing and formatting.
   // This reduces sorting overhead from O(N log N) Date object instantiations to O(N),
   // and avoids costly .toLocaleDateString() calls during every render cycle.
   // Added useMemo to `sortedItems` to prevent re-sorting on unrelated state changes (like selecting a listing).
   // Expected Impact: Reduces sorting/rendering time for large lists by ~30% (verified ~10s reduction in tests).
   const processedItems = useMemo(() => {
-    return items.map((item) => ({
+    return LISTINGS.map((item) => ({
       ...item,
       parsedDateValue: new Date(item.date).getTime(),
       formattedDate: new Date(item.date).toLocaleDateString(),
     }));
-  }, [items]);
+  }, [LISTINGS]);
 
   const sortedItems = useMemo(() => {
     return [...processedItems].sort((a, b) => {
@@ -154,7 +154,7 @@ const ForSale = () => {
             <div className="flex justify-between items-end mb-6">
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Real Estate & Homes For Sale</h1>
-                <p className="text-gray-500 mt-1">{sortedListings.length} results</p>
+                <p className="text-gray-500 mt-1">{sortedItems.length} results</p>
               </div>
 
               <div className="relative">
@@ -175,7 +175,7 @@ const ForSale = () => {
 
             {/* Listings Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-20">
-              {sortedListings.map((listing) => (
+              {sortedItems.map((listing) => (
                 <div
                   key={listing.id}
                   className="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow cursor-pointer bg-white"
@@ -192,7 +192,8 @@ const ForSale = () => {
                         e.stopPropagation();
                         toggleSaveHome(listing.id);
                       }}
-                      className="absolute top-3 right-3 p-2 rounded-full bg-white/90 hover:bg-white transition-colors shadow-sm"
+                      aria-label={savedHomes[listing.id] ? "Remove from saved homes" : "Save home"}
+                      className="absolute top-3 right-3 p-2 rounded-full bg-white/90 hover:bg-white transition-colors shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6156c]"
                     >
                       <Heart
                         className={`w-5 h-5 transition-colors ${savedHomes[listing.id] ? 'fill-[#d6156c] text-[#d6156c]' : 'text-gray-600'}`}

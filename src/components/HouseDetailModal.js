@@ -19,7 +19,7 @@ const HouseDetailModal = ({ listing, onClose, isSaved, toggleSave }) => {
           </button>
           <div className="flex items-center gap-6">
             <button
-              className="flex items-center text-gray-600 hover:text-[#d6156c] transition-colors"
+              className="flex items-center text-gray-600 hover:text-[#d6156c] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6156c]"
               onClick={toggleSave}
             >
               <Heart
@@ -27,11 +27,14 @@ const HouseDetailModal = ({ listing, onClose, isSaved, toggleSave }) => {
               />
               <span className="ml-2 font-medium">{isSaved ? 'Saved' : 'Save'}</span>
             </button>
-            <button className="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+            <button className="flex items-center text-gray-600 hover:text-gray-900 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6156c]">
               <Share2 className="w-5 h-5" />
               <span className="ml-2 font-medium">Share</span>
             </button>
-            <button className="text-gray-600 hover:text-gray-900 transition-colors">
+            <button
+              className="text-gray-600 hover:text-gray-900 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6156c]"
+              aria-label="More options"
+            >
               <MoreHorizontal className="w-5 h-5" />
             </button>
           </div>
