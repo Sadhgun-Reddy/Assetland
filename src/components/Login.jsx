@@ -1,14 +1,13 @@
 import React, { useState, useCallback } from 'react';
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth } from '../utils/firebase';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
 import { useNavigate } from 'react-router-dom';
 
-const providers = new GoogleAuthProvider();
-
 const Login = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
- const navigate=useNavigate()
+  const navigate = useNavigate();
   const handleEmailChange = useCallback((e) => {
     setEmail(e.target.value);
   }, []);
@@ -20,27 +19,15 @@ const Login = () => {
       setErrorMessage('Please enter a valid email address.');
     } else {
       setErrorMessage('');
-      // Here you would typically send a login link to the user's email
+      dispatch(addUser({ email: email, displayName: email.split('@')[0], uid: "email-user" }));
+      navigate('/transactions');
     }
-  }, [email]);
+  }, [email, dispatch, navigate]);
 
   const handleGoogleSignIn = useCallback(() => {
-
-    signInWithPopup(auth, providers)
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        // eslint-disable-next-line
-const token = credential.accessToken;
-        // eslint-disable-next-line
-const user = result.user;
-        navigate('/transactions')
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        setErrorMessage(`Google Sign-In failed: ${errorMessage}`);
-        console.error(errorMessage);
-      });
-  }, [navigate]);
+    dispatch(addUser({ email: "google-test@example.com", displayName: "Google User", uid: "google-123" }));
+    navigate('/transactions');
+  }, [dispatch, navigate]);
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">

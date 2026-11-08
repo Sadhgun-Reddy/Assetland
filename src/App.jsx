@@ -1,7 +1,6 @@
 import { Provider } from "react-redux";
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import appStore from "./utils/appStore"; // Ensure this file exports a valid store
-import AuthListener from "./components/AuthListener"; // Import AuthListener
 import BookaCall from "./components/BookCall";
 import HomebuyerGuide from "./components/BrambleGuides";
 import CashBackCalculater from "./components/CashBackCalculater";
@@ -21,7 +20,6 @@ function App() {
   return (
     <Provider store={appStore}>
       <Router>
-        <AuthListener />  
         <Routes>
           <Route path="/" element={<SignUpHomePage />} />
           <Route path="/cashback" element={<CashBackCalculater />} />
