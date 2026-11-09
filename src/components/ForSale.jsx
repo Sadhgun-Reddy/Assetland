@@ -59,7 +59,7 @@ const ForSale = () => {
   // ⚡ Bolt Performance Optimization:
   // Use Schwartzian transform to map over LISTINGS once, pre-calculating the date parsing and formatting.
   // This reduces sorting overhead from O(N log N) Date object instantiations to O(N),
-  // and avoids costly .toLocaleDateString() calls during every render cycle.
+  // and avoids costly .toLocaleDateString() and .toLocaleString() calls during every render cycle.
   // Added useMemo to `sortedItems` to prevent re-sorting on unrelated state changes (like selecting a listing).
   // Expected Impact: Reduces sorting/rendering time for large lists by ~30% (verified ~10s reduction in tests).
   const processedItems = useMemo(() => {
@@ -67,6 +67,8 @@ const ForSale = () => {
       ...item,
       parsedDateValue: new Date(item.date).getTime(),
       formattedDate: new Date(item.date).toLocaleDateString(),
+      formattedPrice: item.price.toLocaleString(),
+      formattedSqft: item.sqft ? `${item.sqft.toLocaleString()} sqft` : '-- sqft'
     }));
   }, []);
 
@@ -206,12 +208,12 @@ const ForSale = () => {
                   </div>
                   <div className="p-5">
                     <div className="text-2xl font-bold text-gray-900 mb-2">
-                      ${listing.price.toLocaleString()}
+                      ${listing.formattedPrice}
                     </div>
                     <div className="text-gray-700 font-medium mb-2">
                       {listing.beds} bds <span className="text-gray-400 mx-1">|</span>
                       {listing.baths} ba <span className="text-gray-400 mx-1">|</span>
-                      {listing.sqft ? `${listing.sqft.toLocaleString()} sqft` : '-- sqft'}
+                      {listing.formattedSqft}
                     </div>
                     <div className="text-gray-600 truncate mb-1">{listing.address}</div>
                     <div className="text-xs text-gray-500 font-medium truncate uppercase tracking-wide">

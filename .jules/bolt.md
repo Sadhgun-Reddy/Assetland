@@ -5,3 +5,7 @@
 ## 2024-11-07 - Fixing Missing References for Optimization Code
 **Learning:** When using Schwartzian Transform optimization and refactoring the logic to map and sort properties, care needs to be taken to ensure that variable references match and that previous state is managed correctly, ensuring no undefined references exist in sorting or displaying logic. The variables inside `useMemo` were wrongly referring to `items` rather than `LISTINGS`, and output variables inside JSX were referring to `sortedListings` rather than `sortedItems`.
 **Action:** Always make sure variable references mapped and output via Schwartzian Transform implementations match correctly the actual defined values in the app logic.
+
+## 2024-11-13 - Avoid `useMemo` for Scalar Values and `input type="number"` Pitfalls
+**Learning:** Wrapped scalar formatting logic (e.g. `formattedFlatFee = useMemo(() => flatFee.toLocaleString(), [flatFee])`) is detrimental to performance due to memory allocation overhead surpassing simple primitive parsing times. Furthermore, applying `.toLocaleString()` rendering directly onto inputs with `type="number"` will result in broken fields as parsing logic relies on numeric integrity, and commas break input mapping.
+**Action:** Avoid arbitrary `useMemo` applications for basic primitive variables. In addition, always be cautious with rendering strings into value fields meant for parsing/updating, especially when they depend on standard numeric inputs. Pre-calculate values on array level iterations using the Schwartzian pattern rather than component scope.
