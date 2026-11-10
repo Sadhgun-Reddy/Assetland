@@ -42,7 +42,7 @@ const CashBackCalculatorComponent = () => {
         <input
           type="number"
           id="homePrice"
-          value={homePrice.toLocaleString()}
+          value={homePrice}
           onChange={handlePriceChange}
           className="w-full p-2 mt-2 border border-gray-300 rounded"
           aria-label="Home price input"
