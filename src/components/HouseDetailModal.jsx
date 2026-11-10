@@ -1,6 +1,11 @@
 import React from 'react';
 import { X, Share2, Heart, MoreHorizontal, Building2, Calendar, Database } from 'lucide-react';
 
+// ⚡ Bolt Performance Optimization:
+// Hoisted the default features array out of the component to prevent a new array
+// from being allocated in memory during every render cycle.
+const DEFAULT_FEATURES = ['Hardwood Floors', 'Updated Kitchen', 'Large Backyard'];
+
 const HouseDetailModal = ({ listing, onClose, isSaved, toggleSave }) => {
   if (!listing) return null;
 
@@ -128,7 +133,7 @@ const HouseDetailModal = ({ listing, onClose, isSaved, toggleSave }) => {
           <div className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">What's special</h2>
             <div className="flex flex-wrap gap-3 mb-6">
-              {(listing.features || ['Hardwood Floors', 'Updated Kitchen', 'Large Backyard']).map((feature, index) => (
+              {(listing.features || DEFAULT_FEATURES).map((feature, index) => (
                 <span
                   key={index}
                   className="bg-pink-50 text-[#d6156c] font-medium px-4 py-2 rounded-full text-sm border border-pink-100"

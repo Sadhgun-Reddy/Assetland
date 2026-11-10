@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux"; // Import useSelector to access Redux state
 import LogedInNavbar from "./LogedInNavbar"; // Import logged-in navbar
 import Navbar from "./NavBar"; // Import non-logged-in navbar
@@ -6,10 +6,14 @@ import Navbar from "./NavBar"; // Import non-logged-in navbar
 const CashBackCalculatorComponent = () => {
   const [homePrice, setHomePrice] = useState(2670000);
   
+  // ⚡ Bolt Performance Optimization:
+  // Removed unnecessary useMemo for simple scalar calculations.
+  // The React hook overhead (memory allocation, dependency array comparison)
+  // is heavier than just calculating these simple arithmetic operations on every render.
   // Calculate values based on home price
-  const commission = useMemo(() => (homePrice * 0.025).toFixed(2), [homePrice]);
+  const commission = (homePrice * 0.025).toFixed(2);
   const flatFee = 5000;
-  const rebate = useMemo(() => (commission - flatFee).toFixed(2), [commission, flatFee]);
+  const rebate = (commission - flatFee).toFixed(2);
 
   // Function to update the home price when the slider changes
   const handleSliderChange = (event) => {
