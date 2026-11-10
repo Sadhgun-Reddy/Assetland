@@ -5,3 +5,6 @@
 ## 2024-11-07 - Fixing Missing References for Optimization Code
 **Learning:** When using Schwartzian Transform optimization and refactoring the logic to map and sort properties, care needs to be taken to ensure that variable references match and that previous state is managed correctly, ensuring no undefined references exist in sorting or displaying logic. The variables inside `useMemo` were wrongly referring to `items` rather than `LISTINGS`, and output variables inside JSX were referring to `sortedListings` rather than `sortedItems`.
 **Action:** Always make sure variable references mapped and output via Schwartzian Transform implementations match correctly the actual defined values in the app logic.
+## 2024-11-08 - Array Hoisting and Hooks Overhead
+**Learning:** React reallocates memory for inline arrays on every render (e.g. `(listing.features || ["Hardwood Floors", "Updated Kitchen"]).map()`). Additionally, wrapping simple math (like `commission * 0.025`) in `useMemo` is an anti-pattern as the memory allocation and dependency checks of the hook are heavier than executing the simple scalar calculations.
+**Action:** Always hoist default or static arrays outside of component definitions. Never use `useMemo` for simple arithmetic, string operations, or primitive value scalar assignments.
