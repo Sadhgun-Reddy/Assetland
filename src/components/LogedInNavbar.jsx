@@ -40,9 +40,18 @@ const LogedInNavbar = () => {
     return (
         
         <header className='mt-0 flex justify-between items-center px-6 py-4 bg-white shadow fixed w-full'>
-            <div className="text-3xl font-bold text-[#d6156c]">
+            <div className="text-3xl font-bold text-[#d6156c] cursor-pointer" onClick={gotoHome}>
                 Assetland
             </div>
+
+            {/* Main navigation links - Hidden on mobile, visible on larger screens */}
+            <div className="hidden md:flex space-x-4 ml-4">
+                <button onClick={() => navigate('/forSale')} className='px-3 hover:text-[#d6156c] transition-colors'>Buy</button>
+                <button onClick={() => navigate('/sell')} className='px-3 hover:text-[#d6156c] transition-colors'>Sell</button>
+                <button onClick={() => navigate('/ai-agent')} className='px-3 hover:text-[#d6156c] transition-colors'>AI Agent</button>
+                <button onClick={() => navigate('/human-agent')} className='px-3 hover:text-[#d6156c] transition-colors'>Human Agent</button>
+            </div>
+
             <div className="flex-grow max-w-md mx-4">
                 <div className="relative">
                     <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
@@ -71,6 +80,19 @@ const LogedInNavbar = () => {
                             </button>
                         </div>
                         <ul className="space-y-6">
+                            {/* Navigation Links - Visible only in the sidebar on mobile */}
+                            <li className="md:hidden">
+                                <button onClick={() => { navigate('/forSale'); toggleSidebar(); }} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4 w-full text-left'>Buy</button>
+                            </li>
+                            <li className="md:hidden">
+                                <button onClick={() => { navigate('/sell'); toggleSidebar(); }} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4 w-full text-left'>Sell</button>
+                            </li>
+                            <li className="md:hidden">
+                                <button onClick={() => { navigate('/ai-agent'); toggleSidebar(); }} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4 w-full text-left'>AI Agent</button>
+                            </li>
+                            <li className="md:hidden">
+                                <button onClick={() => { navigate('/human-agent'); toggleSidebar(); }} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4 w-full text-left'>Human Agent</button>
+                            </li>
                             <li>
                                 <button onClick={gotoDashboard} className='hover:bg-pink-800 hover:text-white hover:p-2 rounded-xl hover:px-4 w-full text-left'>{displayName}</button>
                             </li>

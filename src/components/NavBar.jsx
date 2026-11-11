@@ -45,9 +45,9 @@ const Navbar = () => {
         {/* This section - Hidden on mobile, visible on larger screens */}
         <div className="hidden md:flex space-x-4">
           <Link to='/forSale' className='px-3 hover:text-[#d6156c] transition-colors'>Buy</Link>
-          <Link to='/' className='px-3 hover:text-[#d6156c] transition-colors'>Sell</Link>
-          <Link to='/' className='px-3 hover:text-[#d6156c] transition-colors'>AI Agent</Link>
-          <Link to='/' className='px-3 hover:text-[#d6156c] transition-colors'>Human Agent</Link>
+          <Link to='/sell' className='px-3 hover:text-[#d6156c] transition-colors'>Sell</Link>
+          <Link to='/ai-agent' className='px-3 hover:text-[#d6156c] transition-colors'>AI Agent</Link>
+          <Link to='/human-agent' className='px-3 hover:text-[#d6156c] transition-colors'>Human Agent</Link>
         </div>
 
         <div className="flex items-center space-x-4">
@@ -83,13 +83,13 @@ const Navbar = () => {
                   <Link to='/forSale' onClick={toggleSidebar} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors block'>Buy</Link>
                 </li>
                 <li>
-                  <Link to='/' onClick={toggleSidebar} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors block'>Sell</Link>
+                  <Link to='/sell' onClick={toggleSidebar} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors block'>Sell</Link>
                 </li>
                 <li>
-                  <Link to='/' onClick={toggleSidebar} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors block'>AI Agent</Link>
+                  <Link to='/ai-agent' onClick={toggleSidebar} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors block'>AI Agent</Link>
                 </li>
                 <li>
-                  <Link to='/' onClick={toggleSidebar} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors block'>Human Agent</Link>
+                  <Link to='/human-agent' onClick={toggleSidebar} className='hover:bg-pink-800 hover:text-white p-2 rounded-xl px-4 transition-colors block'>Human Agent</Link>
                 </li>
               </ul>
 

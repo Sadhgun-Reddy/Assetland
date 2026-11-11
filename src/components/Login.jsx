@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,22 +7,49 @@ const providers = new GoogleAuthProvider();
 
 const Login = () => {
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
- const navigate=useNavigate()
+  const [isSignUp, setIsSignUp] = useState(false);
+  const navigate = useNavigate();
+
   const handleEmailChange = useCallback((e) => {
     setEmail(e.target.value);
   }, []);
 
+  const handlePasswordChange = useCallback((e) => {
+    setPassword(e.target.value);
+  }, []);
+
   const handleEmailSubmit = useCallback(() => {
-    if (!email) {
-      setErrorMessage('Please enter an email address.');
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      setErrorMessage('Please enter a valid email address.');
-    } else {
-      setErrorMessage('');
-      // Here you would typically send a login link to the user's email
+    if (!email || !password) {
+      setErrorMessage('Please enter both email and password.');
+      return;
     }
-  }, [email]);
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
+
+    setErrorMessage('');
+
+    if (isSignUp) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          navigate('/transactions');
+        })
+        .catch((error) => {
+          setErrorMessage(`Sign-Up failed: ${error.message}`);
+        });
+    } else {
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          navigate('/transactions');
+        })
+        .catch((error) => {
+          setErrorMessage(`Login failed: ${error.message}`);
+        });
+    }
+  }, [email, password, isSignUp, navigate]);
 
   const handleGoogleSignIn = useCallback(() => {
 
@@ -56,16 +83,33 @@ const user = result.user;
           className="w-full p-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
           aria-label="Email address"
         />
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={handlePasswordChange}
+          className="w-full p-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+          aria-label="Password"
+        />
         
         <button
           onClick={handleEmailSubmit}
           className="w-full bg-pink-500 text-white p-2 rounded mb-4 hover:bg-pink-600 transition-colors"
-          aria-label="Continue with your email"
+          aria-label={isSignUp ? "Sign Up" : "Sign In"}
         >
-          Continue with your email
+          {isSignUp ? "Sign Up" : "Sign In"}
         </button>
-        
-        <p className="text-sm text-center mb-4">We'll send a login link to your email.</p>
+
+        <p className="text-sm text-center mb-4 text-gray-600">
+          {isSignUp ? "Already have an account?" : "Don't have an account?"}{" "}
+          <button
+            className="text-pink-500 hover:underline focus:outline-none"
+            onClick={() => setIsSignUp(!isSignUp)}
+          >
+            {isSignUp ? "Sign In" : "Sign Up"}
+          </button>
+        </p>
         
         {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
         

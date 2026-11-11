@@ -104,7 +104,7 @@ const SignUpHomePage = () => {
               <input
                 type="number"
                 id="homePrice"
-                value={homePrice.toLocaleString()}
+                value={homePrice}
                 readOnly
                 className="w-full p-2 mt-2 border border-gray-300 rounded"
               />
