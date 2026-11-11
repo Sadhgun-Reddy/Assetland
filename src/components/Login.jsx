@@ -36,9 +36,9 @@ const user = result.user;
         navigate('/transactions')
       })
       .catch((error) => {
-        const errorMessage = error.message;
-        setErrorMessage(`Google Sign-In failed: ${errorMessage}`);
-        console.error(errorMessage);
+        // Log detailed error internally, don't expose to user
+        console.error("Google Sign-In failed:", error.message);
+        setErrorMessage("Google Sign-In failed. Please try again later.");
       });
   }, [navigate]);
 
@@ -55,6 +55,7 @@ const user = result.user;
           onChange={handleEmailChange}
           className="w-full p-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
           aria-label="Email address"
+          maxLength={254}
         />
         
         <button
