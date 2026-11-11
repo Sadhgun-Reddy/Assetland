@@ -1,3 +1,6 @@
 ## 2024-11-05 - Missing Interactive Element Semantic Wrapping
 **Learning:** Found instances where raw `lucide-react` icons (e.g. `<Menu />`) or plain text (e.g., "X") were used as interactive buttons with `onClick` handlers but without `<button>` wrappers. This entirely removes them from the tab flow, meaning keyboard users cannot access them, and screen reader users cannot identify their function or even that they are clickable.
 **Action:** Always wrap interactive SVG icons and custom interactive text elements in a proper `<button>` element. Provide an `aria-label` attribute if the button has no visible text. Additionally, ensure keyboard-focused styles (e.g. `focus-visible:ring-2`) are applied so it is clear when the element is focused.
+## 2024-05-14 - Semantic Button Wrappers for Interactive Icons
+**Learning:** Interactive icons in this application (such as the `lucide-react` `Menu` and close buttons) frequently lack semantic `<button>` wrappers and `aria-label`s, breaking keyboard accessibility and screen reader navigation. Applying `onClick` directly to an SVG without focus states prevents users relying on keyboards from activating menus.
+**Action:** Always wrap interactive icons in a semantic `<button>` tag with a descriptive `aria-label`. Apply focus-visible classes for clear keyboard focus states to improve accessibility.

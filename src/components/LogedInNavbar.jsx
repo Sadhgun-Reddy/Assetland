@@ -54,11 +54,18 @@ const LogedInNavbar = () => {
                         type="text"
                         className="w-full py-2 pl-10 pr-4 text-gray-700 border rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500"
                         placeholder="Type a listing address or link"
+                        aria-label="Search listings"
                     />
                 </div>
             </div>
             <div className="flex items-center space-x-4">
-                <Menu className="cursor-pointer" onClick={toggleSidebar} />
+                <button
+                    onClick={toggleSidebar}
+                    aria-label="Open menu"
+                    className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6156c] transition-colors"
+                >
+                    <Menu className="cursor-pointer w-6 h-6" />
+                </button>
                 {/* Sidebar */}
                 <div
                     className={`fixed inset-y-0 right-0 w-80 bg-white shadow-xl text-gray-900 transform ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out z-50`}
@@ -66,7 +73,11 @@ const LogedInNavbar = () => {
                     <div className="p-6">
                         <div className="flex justify-between items-center mb-6">
                             <div className="text-3xl font-bold text-[#d6156c]">Assetland</div>
-                            <button onClick={toggleSidebar} className="text-gray-500 hover:text-gray-900">
+                            <button
+                                onClick={toggleSidebar}
+                                aria-label="Close menu"
+                                className="p-2 text-gray-500 hover:text-gray-900 rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d6156c] transition-colors"
+                            >
                                 X
                             </button>
                         </div>
