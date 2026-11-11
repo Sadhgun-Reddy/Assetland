@@ -16,6 +16,9 @@ import UserAccount from "./components/Dashboard";
 import Footer from "./components/Footer";
 import SignUpHomePage from "./components/SignUpHomePage";
 import ForSale from "./components/ForSale";
+import AIAgent from "./components/AIAgent";
+import HumanAgent from "./components/HumanAgent";
+import Sell from "./components/Sell";
 
 function App() {
   return (
@@ -37,7 +40,9 @@ function App() {
           <Route path="/profile" element={<UserAccount />} />
           <Route path="/Footer" element={<Footer />} />
           <Route path="/forSale" element={<ForSale />} />
-
+          <Route path="/ai-agent" element={<AIAgent />} />
+          <Route path="/human-agent" element={<HumanAgent />} />
+          <Route path="/sell" element={<Sell />} />
         </Routes>
       </Router>
     </Provider>
