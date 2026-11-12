@@ -190,6 +190,7 @@ const ForSale = () => {
                       src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=2000&auto=format&fit=crop"
                       alt="House"
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                     <button
                       onClick={(e) => {
