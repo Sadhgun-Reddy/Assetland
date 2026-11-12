@@ -5,3 +5,7 @@
 ## 2024-11-07 - Fixing Missing References for Optimization Code
 **Learning:** When using Schwartzian Transform optimization and refactoring the logic to map and sort properties, care needs to be taken to ensure that variable references match and that previous state is managed correctly, ensuring no undefined references exist in sorting or displaying logic. The variables inside `useMemo` were wrongly referring to `items` rather than `LISTINGS`, and output variables inside JSX were referring to `sortedListings` rather than `sortedItems`.
 **Action:** Always make sure variable references mapped and output via Schwartzian Transform implementations match correctly the actual defined values in the app logic.
+
+## 2024-11-20 - Adding Native Lazy Loading to Images
+**Learning:** Found multiple instances where `<img>` elements loaded images eagerly, including images located off-screen, leading to unnecessary network load and delayed initial paint.
+**Action:** Applied native lazy loading using the `loading="lazy"` attribute on `<img>` tags across several components (`ForSale.jsx`, `HouseDetailModal.jsx`, `SignUpHomePage.jsx`, `BrambleGuides.jsx`) to improve performance.

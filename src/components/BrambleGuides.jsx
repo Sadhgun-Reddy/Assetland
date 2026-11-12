@@ -3,7 +3,7 @@ import React from 'react';
 const GuideItem = ({ image, title, description }) => (
   <div className="flex flex-row w-full bg-white  rounded-lg overflow-hidden mb-6 ">
       <div className=" sm:w-1/3">
-        <img src={image} alt={title} className="object-cover h-fit" />
+        <img src={image} alt={title} className="object-cover h-fit" loading="lazy" />
       </div>
       <div className="w-2/3 p-6">
         <h3 className="text-2xl font-semibold  text-gray-800">{title}</h3>

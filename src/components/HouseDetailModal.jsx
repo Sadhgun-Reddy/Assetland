@@ -47,6 +47,7 @@ const HouseDetailModal = ({ listing, onClose, isSaved, toggleSave }) => {
               src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=2000&auto=format&fit=crop"
               alt="House Exterior"
               className="w-full h-64 object-cover"
+              loading="lazy"
             />
           </div>
           <div className="md:w-1/2 rounded-lg overflow-hidden shadow-sm hidden md:block">
@@ -54,6 +55,7 @@ const HouseDetailModal = ({ listing, onClose, isSaved, toggleSave }) => {
               src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop"
               alt="House Interior"
               className="w-full h-64 object-cover"
+              loading="lazy"
             />
           </div>
         </div>

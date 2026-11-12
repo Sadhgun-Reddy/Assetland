@@ -42,6 +42,7 @@ const SignUpHomePage = () => {
               src="https://usebramble.com/assets/bramble-app-DmbpbX1J.webp"
               alt="Assetland App"
               className="w-full h-auto"
+              loading="lazy"
             />
           </div>
         </main>
@@ -54,7 +55,7 @@ const SignUpHomePage = () => {
           {/* Step 1 */}
           <div className="flex flex-col md:flex-row items-center md:space-x-8 space-y-6 md:space-y-0">
             <div className="w-full md:w-1/3">
-              <img src="https://usebramble.com/assets/bramble-comps-Dl0WBhzq.webp" alt="Evaluate listings" className="w-full h-auto" />
+              <img src="https://usebramble.com/assets/bramble-comps-Dl0WBhzq.webp" alt="Evaluate listings" className="w-full h-auto" loading="lazy" />
             </div>
             <div className="w-full md:w-2/3">
               <h2 className="text-xl md:text-3xl font-bold">Step 1: Evaluate listings</h2>
@@ -76,7 +77,7 @@ const SignUpHomePage = () => {
               </Link>
             </div>
             <div className="w-full md:w-1/3">
-              <img src="https://usebramble.com/assets/bramble-offers-ZKcWzHKS.webp" alt="Make offers" className="w-full h-auto" />
+              <img src="https://usebramble.com/assets/bramble-offers-ZKcWzHKS.webp" alt="Make offers" className="w-full h-auto" loading="lazy" />
             </div>
           </div>
         </div>
@@ -88,7 +89,7 @@ const SignUpHomePage = () => {
           {/* Step 3 */}
           <div className="flex flex-col md:flex-row items-center md:space-x-8 space-y-6 md:space-y-0">
             <div className="w-full md:w-1/3">
-              <img src="https://usebramble.com/assets/bramble-closing-Cfm8DP82.webp" alt="Closing confidence" className="w-full h-auto" />
+              <img src="https://usebramble.com/assets/bramble-closing-Cfm8DP82.webp" alt="Closing confidence" className="w-full h-auto" loading="lazy" />
             </div>
             <div className="w-full md:w-2/3">
               <h2 className="text-xl md:text-3xl font-bold">Step 3: Close with confidence</h2>
@@ -134,7 +135,7 @@ const SignUpHomePage = () => {
               </p>
             </div>
             <div className="w-full md:w-1/3">
-              <img src="https://usebramble.com/assets/bramble-savings-D9ITU2-P.webp" alt="Assetland savings" className="w-full h-auto" />
+              <img src="https://usebramble.com/assets/bramble-savings-D9ITU2-P.webp" alt="Assetland savings" className="w-full h-auto" loading="lazy" />
             </div>
           </div>
         </div>
@@ -154,6 +155,7 @@ const SignUpHomePage = () => {
               alt="Tony Andrade"
               className="mx-auto mb-4 rounded-full"
               style={{ width: '80px', height: '80px' }}
+              loading="lazy"
             />
             <h3 className="text-lg md:text-xl font-bold">Tony Andrade</h3>
             <p className="text-sm md:text-base text-gray-600">
